@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+<title>Dashboard (NOAA)</title>
+
+<meta property="og:title" content="Dashboard (NOAA)" />
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+
+<link rel="icon" href="data:image/x-icon;" type="image/x-icon">
+
+
+<script type="text/javascript">
+window.FlexDashboardComponents = [];
+</script>
+
+<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/stickytableheaders-0.1.19/jquery.stickytableheaders.min.js"></script>
+<link href="site_libs/value-box-accent-static-0.6.2/theme-cosmo-value-box.css" rel="stylesheet" />
+<link href="site_libs/flexdashboard-css-0.6.2/flexdashboard.min.css" rel="stylesheet" />
+<link href="site_libs/flexdashboard-css-0.6.2/theme-cosmo.css" rel="stylesheet" />
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<style type="text/css">
+/*
+  CSS for flexdashboard.js' use of Sly(). The sizing/position of this CSS needs to be
+  applied _before_ flexdashboard.js initializes, which is why this CSS has been pulled
+  out from flexdashboard.scss and inlined in the document's head.
+*/
+
+.storyboard-nav button {
+  background: transparent;
+  border: 0;
+  opacity: .3;
+  outline: none;
+  padding: 0;
+}
+
+.storyboard-nav button:hover,
+.storyboard-nav button:hover {
+  opacity: .5;
+}
+
+.storyboard-nav button:disabled,
+.storyboard-nav button:disabled {
+  opacity: .1;
+}
+
+.storyboard-nav .sbnext,
+.storyboard-nav .sbprev {
+  float: left;
+  width: 2%;
+  height: 120px;
+}
+
+.storyboard-nav .sbprev {
+  text-align: left;
+  width: 2%;
+}
+
+.storyboard-nav .sbnext {
+  float: right;
+  text-align: right;
+  margin-right: 8px;
+}
+
+.storyboard-nav .sbframelist {
+  margin: 0 auto;
+  width: 94%;
+  height: 120px;
+  overflow: hidden;
+  text-shadow: none;
+  margin-bottom: 8px;
+}
+
+.storyboard-nav .sbframelist ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.storyboard-nav .sbframelist ul li {
+  float: left;
+  width: 270px;
+  height: 100%;
+  padding: 10px 10px 10px 10px;
+  margin-right: 8px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.storyboard-nav .sbframelist ul li:last-child {
+  margin-right: 0px;
+}
+
+.sbframe-commentary {
+  width: 300px;
+}
+
+.sbframe-commentary ul {
+  padding-left: 22px;
+}
+
+.sbframe.active {
+  display: flex;
+}
+
+.sbframe:not(.active) {
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+html, body {
+  height: 100%;
+}
+
+#dashboard-container {
+  height: 100%;
+}
+}
+</style>
+
+
+
+</head>
+
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div class="container-fluid">
+<div class="navbar-header">
+
+<span class="navbar-logo pull-left">
+  
+</span>
+<span class="navbar-brand">
+  Dashboard (NOAA)
+  <span class="navbar-author">
+        </span>
+</span>
+
+<button id="navbar-button" type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+
+</div>
+<div id="navbar" class="navbar-collapse collapse">
+<ul class="nav navbar-nav navbar-left">
+</ul>
+<ul class="nav navbar-nav navbar-right">
+</ul>
+</div><!--/.nav-collapse-->
+</div><!--/.container-->
+</div><!--/.navbar-->
+
+<script type="text/javascript">
+
+
+var FlexDashboard = (function () {
+
+  // initialize options
+  var _options = {};
+
+  var FlexDashboard = function() {
+
+    // default options
+    _options = $.extend(_options, {
+      theme: "cosmo",
+      fillPage: false,
+      orientation: 'columns',
+      storyboard: false,
+      defaultFigWidth: 576,
+      defaultFigHeight: 461,
+      defaultFigWidthMobile: 360,
+      defaultFigHeightMobile: 461,
+      isMobile: false,
+      isPortrait: false,
+      resize_reload: true
+    });
+  };
+
+  function init(options) {
+
+    // extend default options
+    $.extend(true, _options, options);
+
+    // add ids to sections that don't have them (pandoc won't assign ids
+    // to e.g. sections with titles consisting of only chinese characters)
+    var nextId = 1;
+    $('.level1:not([id]),.level2:not([id]),.level3:not([id])').each(function() {
+      $(this).attr('id', 'dashboard-' + nextId++);
+    });
+
+    // find navbar items
+    var navbarItems = $('#flexdashboard-navbar');
+    if (navbarItems.length)
+      navbarItems = JSON.parse(navbarItems.html());
+    addNavbarItems(navbarItems);
+
+    // find the main dashboard container
+    var dashboardContainer = $('#dashboard-container');
+
+    // resolve mobile classes
+    resolveMobileClasses(dashboardContainer);
+
+    // one time global initialization for components
+    componentsInit(dashboardContainer);
+
+    // look for a global sidebar
+    var globalSidebar = dashboardContainer.find(".section.level1.sidebar");
+    if (globalSidebar.length > 0) {
+
+      // global layout for fullscreen displays
+      if (!isMobilePhone()) {
+
+         // hoist it up to the top level
+         globalSidebar.insertBefore(dashboardContainer);
+
+         // lay it out (set width/positions)
+         layoutSidebar(globalSidebar, dashboardContainer);
+
+      // tuck sidebar into first page for mobile phones
+      } else {
+
+        // convert it into a level3 section
+        globalSidebar.removeClass('sidebar');
+        globalSidebar.removeClass('level1');
+        globalSidebar.addClass('level3');
+        var h1 = globalSidebar.children('h1');
+        var h3 = $('<h3></h3>');
+        h3.append(h1.contents());
+        h3.insertBefore(h1);
+        h1.detach();
+
+        // move it into the first page
+        var page = dashboardContainer.find('.section.level1').first();
+        if (page.length > 0)
+          page.prepend(globalSidebar);
+      }
+    }
+
+    // look for pages to layout
+    var pages = $('div.section.level1');
+    if (pages.length > 0) {
+
+        // find the navbar and collapse on clicked
+        var navbar = $('#navbar');
+        navbar.on("click", "a[data-toggle!=dropdown]", null, function () {
+           navbar.collapse('hide');
+        });
+
+        // envelop the dashboard container in a tab content div
+        dashboardContainer.wrapInner('<div class="tab-content"></div>');
+
+        pages.each(function(index) {
+
+          // lay it out
+          layoutDashboardPage($(this));
+
+          // add it to the navbar
+          addToNavbar($(this), index === 0);
+
+        });
+
+    } else {
+
+      // remove the navbar and navbar button if we don't
+      // have any navbuttons
+      if (navbarItems.length === 0) {
+        $('#navbar').remove();
+        $('#navbar-button').remove();
+      }
+
+      // add the storyboard class if requested
+      if (_options.storyboard)
+        dashboardContainer.addClass('storyboard');
+
+      // layout the entire page
+      layoutDashboardPage(dashboardContainer);
+    }
+
+    // if we are in shiny we need to trigger a window resize event to
+    // force correct layout of shiny-bound-output elements
+    if (isShinyDoc())
+      $(window).trigger('resize');
+
+    // make main components visible
+    $('.section.sidebar').css('visibility', 'visible');
+    dashboardContainer.css('visibility', 'visible');
+
+    // handle location hash
+    handleLocationHash();
+
+    // intialize prism highlighting
+    initPrismHighlighting();
+
+    // record mobile and orientation state then register a handler
+    // to refresh if resize_reload is set to true and it changes
+    _options.isMobile = isMobilePhone();
+    _options.isPortrait = isPortrait();
+    if (_options.resize_reload) {
+      $(window).on('resize', function() {
+        if (_options.isMobile !== isMobilePhone() ||
+            _options.isPortrait !== isPortrait()) {
+          window.location.reload();
+        }
+      });
+    } else {
+      // if in desktop mode and resizing to mobile, make sure the heights are 100%
+      // This enforces what `fillpage.css` does for "wider" pages.
+      // Since we are not reloading once the page becomes small, we need to force the height to 100%
+      // This is a new situation introduced when `_options.resize_reload` is `false`
+      if (! _options.isMobile) {
+        // only add if `fillpage.css` was added in the first place
+        if (_options.fillPage) {
+          // fillpage.css
+          $("html,body,#dashboard").css("height", "100%");
+        }
+      }
+    }
+    // trigger layoutcomplete event
+    dashboardContainer.trigger('flexdashboard:layoutcomplete');
+  }
+
+  function resolveMobileClasses(dashboardContainer) {
+     // add top level layout class
+    dashboardContainer.addClass(isMobilePhone() ? 'mobile-layout' :
+                                                  'desktop-layout');
+
+    // look for .mobile sections and add .no-mobile to their peers
+    var mobileSections = $('.section.mobile');
+    mobileSections.each(function() {
+       var id = $(this).attr('id');
+       var nomobileId = id.replace(/-\d+$/, '');
+       $('#' + nomobileId).addClass('no-mobile');
+    });
+  }
+
+  function addNavbarItems(navbarItems) {
+
+    var navbarLeft = $('ul.navbar-left');
+    var navbarRight = $('ul.navbar-right');
+
+    for (var i = 0; i<navbarItems.length; i++) {
+
+      // get the item
+      var item = navbarItems[i];
+
+      // determine the container
+      var container = null;
+      if (item.align === "left")
+        container = navbarLeft;
+      else
+        container = navbarRight;
+
+      // navbar menu if we have multiple items
+      if (item.items) {
+        var menu = navbarMenu(null, item.icon, item.title, container);
+        for (var j = 0; j<item.items.length; j++) {
+          var subItem = item.items[j];
+          var li = $('<li></li>');
+          var a = navbarLink(subItem.icon, subItem.title, subItem.href, subItem.target);
+          a.removeClass("nav-link").addClass("dropdown-item");
+          li.append(a);
+          menu.append(li);
+        }
+      } else {
+        var li = $('<li class="nav-item"></li>');
+        li.append(navbarLink(item.icon, item.title, item.href, item.target));
+        container.append(li);
+      }
+    }
+  }
+
+  // create or get a reference to an existing dropdown menu
+  function navbarMenu(id, icon, title, container) {
+    var existingMenu = [];
+    if (id)
+      existingMenu = container.children('#' + id);
+    if (existingMenu.length > 0) {
+      return existingMenu.children('ul');
+    } else {
+      var li = $('<li class="nav-item"></li>');
+      if (id)
+        li.attr('id', id);
+      li.addClass('dropdown');
+      // auto add "Share" title on mobile if necessary
+      if (!title && icon && (icon === "fa-share-alt") && isMobilePhone())
+        title = "Share";
+      if (title) {
+        title = title + ' <span class="caret"></span>';
+      }
+      var a = navbarLink(icon, title, "#");
+      a.addClass('dropdown-toggle');
+      a.attr('data-toggle', 'dropdown');
+      a.attr('data-bs-toggle', 'dropdown');
+      a.attr('role', 'button');
+      a.attr('aria-expanded', 'false');
+      li.append(a);
+      var ul = $('<ul class="dropdown-menu"></ul>');
+      ul.attr('role', 'menu');
+      li.append(ul);
+      container.append(li);
+      return ul;
+    }
+  }
+
+  function addToNavbar(page, active) {
+
+    // capture the id and data-icon attribute (if any)
+    var id = page.attr('id');
+    var icon = page.attr('data-icon');
+    var navmenu = page.attr('data-navmenu');
+    var navmenuIcon = page.attr('data-navmenu-icon');
+
+    // get hidden state (transfer this to navbar)
+    var hidden = page.hasClass('hidden');
+    page.removeClass('hidden');
+
+    // sanitize the id for use with bootstrap tabs
+    id = id.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_');
+    page.attr('id', id);
+
+    // get the wrapper
+    var wrapper = page.closest('.dashboard-page-wrapper');
+
+    // move the id to the wrapper
+    page.removeAttr('id');
+    wrapper.attr('id', id);
+
+    // add the tab-pane class to the wrapper
+    wrapper.addClass('tab-pane');
+
+    // get a reference to the h1, discover its inner contens, then detach it
+    var h1 = wrapper.find('h1').first();
+    var title = h1.contents();
+    h1.detach();
+
+    // create a navbar item
+    var li = $('<li></li>');
+    var a = navbarLink(icon, title, '#' + id);
+    a.attr('data-toggle', 'tab');
+    a.attr('data-bs-toggle', 'tab');
+    li.append(a);
+
+    // add it to the navbar (or navbar menu if specified)
+    var container = $('ul.navbar-left');
+    if (navmenu) {
+      var menuId = navmenu.replace(/\s+/g, '');
+      var menu = navbarMenu(menuId, navmenuIcon, navmenu, container);
+      li.find("> a").removeClass("nav-link").addClass("dropdown-item");
+      menu.append(li);
+    } else {
+      li.addClass("nav-item")
+      container.append(li);
+    }
+
+    // mark active tab and corresponding nav menu item
+    if (active)
+      $(a).tab("show");
+
+    // hide it if requested
+    if (hidden)
+      li.addClass('hidden');
+  }
+
+  function navbarLink(icon, title, href, target) {
+
+    var a = $('<a class="nav-link"></a>');
+    if (icon) {
+
+      // get the name of the icon set and icon
+      var dashPos = icon.indexOf("-");
+      var iconSet = null;
+      var iconSplit = icon.split(" ");
+      if (iconSplit.length > 1) {
+        iconSet = iconSplit[0];
+        icon = iconSplit.slice(1).join(" ");
+      } else {
+        iconSet = icon.substring(0, dashPos);
+      }
+      var iconName = icon.substring(dashPos + 1);
+
+      // create the icon
+      var iconElement = $('<span class="' + iconSet + ' ' + icon + '"></span>');
+      if (title)
+        iconElement.css('margin-right', '7px');
+      a.append(iconElement);
+      // if href is null see if we can auto-generate based on icon (e.g. social)
+      if (!href)
+        maybeGenerateLinkFromIcon(iconName, a);
+    }
+    if (title)
+      a.append(title);
+
+    // add the href.
+    if (href) {
+      if (href === "source_embed") {
+        a.attr('href', '#');
+        a.attr('data-featherlight', "#flexdashboard-source-code");
+        a.featherlight({
+            beforeOpen: function(event){
+              $('body').addClass('unselectable');
+            },
+            afterClose: function(event){
+              $('body').removeClass('unselectable');
+            }
+        });
+      } else {
+        a.attr('href', href);
+      }
+    }
+
+    // add the arget
+    if (target)
+      a.attr('target', target);
+
+    return a;
+  }
+
+  // auto generate a link from an icon name (e.g. twitter) when possible
+  function maybeGenerateLinkFromIcon(iconName, a) {
+
+     var serviceLinks = {
+      "twitter": "https://twitter.com/share?text=" + encodeURIComponent(document.title) + "&url="+encodeURIComponent(location.href),
+      "facebook": "https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(location.href),
+      "linkedin": "https://www.linkedin.com/shareArticle?mini=true&url="+encodeURIComponent(location.href) + "&title=" + encodeURIComponent(document.title),
+      "pinterest": "https://pinterest.com/pin/create/link/?url="+encodeURIComponent(location.href) + "&description=" + encodeURIComponent(document.title)
+    };
+
+    var makeSocialLink = function(a, href) {
+      a.attr('href', '#');
+      a.on('click', function(e) {
+        e.preventDefault();
+        window.open(href);
+      });
+    };
+
+    $.each(serviceLinks, function(key, value) {
+      if (iconName.indexOf(key) !== -1)
+        makeSocialLink(a, value);
+    });
+  }
+
+  // layout a dashboard page
+  function layoutDashboardPage(page) {
+
+    // use a page wrapper so that free form content above the
+    // dashboard appears at the top rather than the side (as it
+    // would without the wrapper in a column orientation)
+    var wrapper = $('<div class="dashboard-page-wrapper"></div>');
+    page.wrap(wrapper);
+
+    // if there are no level2 or level3 headers synthesize a level3
+    // header to contain the (e.g. frame it, scroll container, etc.)
+    var headers = page.find('h2,h3');
+    if (headers.length === 0)
+      page.wrapInner('<div class="section level3"></div>');
+
+    // hoist up any content before level 2 or level 3 headers
+    var children = page.children();
+    children.each(function(index) {
+      if ($(this).hasClass('level2') || $(this).hasClass('level3'))
+        return false;
+      $(this).insertBefore(page);
+    });
+
+    // determine orientation and fillPage behavior for distinct media
+    var orientation, fillPage, storyboard;
+
+    // media: mobile phone
+    if (isMobilePhone()) {
+
+      // if there is a sidebar we need to ensure it's content
+      // is properly framed as an h3
+      var sidebar = page.find('.section.sidebar');
+      sidebar.removeClass('sidebar');
+      sidebar.wrapInner('<div class="section level3"></div>');
+      var h2 = sidebar.find('h2');
+      var h3 = $('<h3></h3>');
+      h3.append(h2.contents());
+      h3.insertBefore(h2);
+      h2.detach();
+
+      // wipeout h2 elements then enclose them in a single h2
+      var level2 = page.find('div.section.level2');
+      level2.each(function() {
+        level2.children('h2').remove();
+        level2.children().unwrap();
+      });
+      page.wrapInner('<div class="section level2"></div>');
+
+      // substitute mobile images
+      if (isPortrait()) {
+        var mobileFigures = $('img.mobile-figure');
+        mobileFigures.each(function() {
+          // get the src (might be base64 encoded)
+          var src = $(this).attr('src');
+
+          // find it's peer
+          var id = $(this).attr('data-mobile-figure-id');
+          var img = $('img[data-figure-id=' + id + "]");
+          img.attr('src', src)
+             .attr('width', _options.defaultFigWidthMobile)
+             .attr('height', _options.defaultFigHeightMobile);
+        });
+      }
+
+      // hoist storyboard commentary into it's own section
+      if (page.hasClass('storyboard')) {
+        var commentaryHR = page.find('div.section.level3 hr');
+        commentaryHR.each(function() {
+          var commentary = $(this).nextAll().detach();
+          var commentarySection = $('<div class="section level3"></div>');
+          commentarySection.append(commentary);
+          commentarySection.insertAfter($(this).closest('div.section.level3'));
+          $(this).remove();
+        });
+      }
+
+      // force a non full screen layout by columns
+      orientation = _options.orientation = 'columns';
+      fillPage = _options.fillPage = false;
+      storyboard = _options.storyboard = false;
+
+    // media: desktop
+    } else {
+
+      // determine orientation
+      orientation = page.attr('data-orientation');
+      if (orientation !== 'rows' && orientation != 'columns')
+        orientation = _options.orientation;
+
+      // determine storyboard mode
+      storyboard = page.hasClass('storyboard');
+
+      // fillPage based on options (force for storyboard)
+      fillPage = _options.fillPage || storyboard;
+
+      // handle sidebar
+      var sidebar = page.find('.section.level2.sidebar');
+      if (sidebar.length > 0)
+        layoutSidebar(sidebar, page);
+    }
+
+    // give it and it's parent divs height: 100% if we are in fillPage mode
+    if (fillPage) {
+      page.addClass('vertical-layout-fill');
+      page.css('height', '100%');
+      page.parents('div').css('height', '100%');
+    } else {
+      page.addClass('vertical-layout-scroll');
+    }
+
+    // perform the layout
+    if (storyboard)
+      layoutPageAsStoryboard(page);
+    else if (orientation === 'rows')
+      layoutPageByRows(page, fillPage);
+    else if (orientation === 'columns')
+      layoutPageByColumns(page, fillPage);
+  }
+
+  function layoutSidebar(sidebar, content) {
+
+    // get it out of the header hierarchy
+    sidebar = sidebar.first();
+    if (sidebar.hasClass('level1')) {
+      sidebar.removeClass('level1');
+      sidebar.children('h1').remove();
+    } else if (sidebar.hasClass('level2')) {
+      sidebar.removeClass('level2');
+      sidebar.children('h2').remove();
+    }
+
+    // determine width
+    var sidebarWidth = isTablet() ? 220 : 250;
+    var dataWidth = parseInt(sidebar.attr('data-width'));
+    if (dataWidth)
+      sidebarWidth = dataWidth;
+
+    // set the width and shift the page right to accomodate the sidebar
+    sidebar.css('width', sidebarWidth + 'px');
+    content.css('padding-left', sidebarWidth + 'px');
+
+    // wrap it's contents in a form
+    sidebar.wrapInner($('<form></form>'));
+  }
+
+  function layoutPageAsStoryboard(page) {
+
+    // create storyboard navigation
+    var nav = $('<div class="storyboard-nav"></div>');
+
+    // add navigation buttons
+    var prev = $('<button class="sbprev"><i class="fa fa-angle-left"></i></button>');
+    nav.append(prev);
+    var next= $('<button class="sbnext"><i class="fa fa-angle-right"></i></button>');
+    nav.append(next);
+
+    // add navigation frame
+    var frameList = $('<div class="sbframelist"></div>');
+    nav.append(frameList);
+    var ul = $('<ul></ul>');
+    frameList.append(ul);
+
+     // find all the level3 sections (those are the storyboard frames)
+    var frames = page.find('div.section.level3');
+    frames.each(function() {
+
+      // mark it
+      $(this).addClass('sbframe');
+
+      // divide it into chart content and (optional) commentary
+      $(this).addClass('dashboard-column-orientation');
+
+      // stuff the chart into it's own div w/ flex
+      $(this).wrapInner('<div class="sbframe-component"></div>');
+      setFlex($(this), 1);
+      var frame = $(this).children('.sbframe-component');
+
+      // extract the title from the h3
+      var li = $('<li></li>');
+      var h3 = frame.children('h3');
+      li.append(h3.contents());
+      h3.detach();
+      ul.append(li);
+
+      // extract commentary
+      var hr = frame.children('hr');
+      if (hr.length) {
+        var commentary = hr.nextAll().detach();
+        hr.remove();
+        var commentaryFrame = $('<div class="sbframe-commentary"></div>');
+        commentaryFrame.addClass('flowing-content-shim');
+        commentaryFrame.addClass('flowing-content-container');
+        commentaryFrame.append(commentary);
+        $(this).append(commentaryFrame);
+
+        // look for a data-commentary-width attribute
+        var commentaryWidth = $(this).attr('data-commentary-width');
+        if (commentaryWidth)
+          commentaryFrame.css('width', commentaryWidth + 'px');
+      }
+
+      // layout the chart (force flex)
+      var result = layoutChart(frame, true);
+
+      // ice the notes if there are none
+      if (!result.notes)
+        frame.find('.chart-notes').remove();
+
+      // set flex on chart
+      setFlex(frame, 1);
+    });
+
+    // create a div to hold all the frames
+    var frameContent = $('<div class="sbframe-content"></div>');
+    frameContent.addClass('dashboard-row-orientation');
+    frameContent.append(frames.detach());
+
+    // row orientation to stack nav and frame content
+    page.addClass('dashboard-row-orientation');
+    page.append(nav);
+    page.append(frameContent);
+    setFlex(frameContent, 1);
+
+    // initialize sly
+    var sly = new Sly(frameList, {
+    		horizontal: true,
+    		itemNav: 'basic',
+    		smart: true,
+    		activateOn: 'click',
+    		startAt: 0,
+    		scrollBy: 1,
+    		activatePageOn: 'click',
+    		speed: 200,
+    		moveBy: 600,
+    		dragHandle: true,
+    		dynamicHandle: true,
+    		clickBar: true,
+    		keyboardNavBy: 'items',
+    		next: next,
+    		prev: prev
+    	}).init();
+
+    // make first frame active
+    frames.removeClass('active');
+    frames.first().addClass('active');
+
+    // subscribe to frame changed events
+    sly.on('active', function (eventName, itemIndex) {
+      frames.removeClass('active');
+      frames.eq(itemIndex).addClass('active')
+                          .trigger('shown');
+    });
+  }
+
+  function layoutPageByRows(page, fillPage) {
+
+    // row orientation
+    page.addClass('dashboard-row-orientation');
+
+    // find all the level2 sections (those are the rows)
+    var rows = page.find('div.section.level2');
+
+    // if there are no level2 sections then treat the
+    // entire page as if it's a level 2 section
+    if (rows.length === 0) {
+      page.wrapInner('<div class="section level2"></div>');
+      rows = page.find('div.section.level2');
+    }
+
+    rows.each(function () {
+
+      // flags
+      var haveNotes = false;
+      var haveFlexHeight = true;
+
+      // remove the h2
+      $(this).children('h2').remove();
+
+      // check for a tabset
+      var isTabset = $(this).hasClass('tabset');
+      if (isTabset)
+        layoutTabset($(this));
+
+      // give it row layout semantics if it's not a tabset
+      if (!isTabset)
+        $(this).addClass('dashboard-row');
+
+      // find all of the level 3 subheads
+      var columns = $(this).find('div.section.level3');
+
+      // determine figureSizes sizes
+      var figureSizes = chartFigureSizes(columns);
+
+      // fixup the columns
+      columns.each(function(index) {
+
+        // layout the chart (force flex if we are in a tabset)
+        var result = layoutChart($(this), isTabset);
+
+        // update flexHeight state
+        if (!result.flex)
+          haveFlexHeight = false;
+
+        // update state
+        if (result.notes)
+          haveNotes = true;
+
+        // set the column flex based on the figure width
+        // (value boxes will just get the default figure width)
+        var chartWidth = figureSizes[index].width;
+        setFlex($(this), chartWidth + ' ' + chartWidth + ' 0px');
+
+      });
+
+      // remove empty chart note divs
+      if (isTabset)
+        $(this).find('.chart-notes').filter(function() {
+            return $(this).html() === "&nbsp;";
+        }).remove();
+      if (!haveNotes)
+        $(this).find('.chart-notes').remove();
+
+       // make it a flexbox row
+      if (haveFlexHeight)
+        $(this).addClass('dashboard-row-flex');
+
+      // now we can set the height on all the wrappers (based on maximum
+      // figure height + room for title and notes, or data-height on the
+      // container if specified). However, don't do this if there is
+      // no flex on any of the constituent columns
+      var flexHeight = null;
+      var dataHeight = parseInt($(this).attr('data-height'));
+      if (dataHeight)
+        flexHeight = adjustedHeight(dataHeight, columns.first());
+      else if (haveFlexHeight)
+        flexHeight = maxChartHeight(figureSizes, columns);
+      if (flexHeight) {
+        if (fillPage)
+          setFlex($(this), flexHeight + ' ' + flexHeight + ' 0px');
+        else {
+          $(this).css('height', flexHeight + 'px');
+          setFlex($(this), '0 0 ' + flexHeight + 'px');
+        }
+      }
+
+    });
+  }
+
+  function layoutPageByColumns(page, fillPage) {
+
+    // column orientation
+    page.addClass('dashboard-column-orientation');
+
+    // find all the level2 sections (those are the columns)
+    var columns = page.find('div.section.level2');
+
+    // if there are no level2 sections then treat the
+    // entire page as if it's a level 2 section
+    if (columns.length === 0) {
+      page.wrapInner('<div class="section level2"></div>');
+      columns = page.find('div.section.level2');
+    }
+
+    // layout each column
+    columns.each(function (index) {
+
+      // remove the h2
+      $(this).children('h2').remove();
+
+      // make it a flexbox column
+      $(this).addClass('dashboard-column');
+
+      // check for a tabset
+      var isTabset = $(this).hasClass('tabset');
+      if (isTabset)
+        layoutTabset($(this));
+
+      // find all the h3 elements
+      var rows = $(this).find('div.section.level3');
+
+      // get the figure sizes for the rows
+      var figureSizes = chartFigureSizes(rows);
+
+      // column flex is the max row width (or data-width if specified)
+      var flexWidth;
+      var dataWidth = parseInt($(this).attr('data-width'));
+      if (dataWidth)
+        flexWidth = dataWidth;
+      else
+        flexWidth = maxChartWidth(figureSizes);
+      setFlex($(this), flexWidth + ' ' + flexWidth + ' 0px');
+
+      // layout each chart
+      rows.each(function(index) {
+
+        // perform the layout
+        var result = layoutChart($(this), false);
+
+        // ice the notes if there are none
+        if (!result.notes)
+          $(this).find('.chart-notes').remove();
+
+        // set flex height based on figHeight, then adjust
+        if (result.flex) {
+          var chartHeight = figureSizes[index].height;
+          chartHeight = adjustedHeight(chartHeight, $(this));
+          if (fillPage)
+            setFlex($(this), chartHeight + ' ' + chartHeight + ' 0px');
+          else {
+            $(this).css('height', chartHeight + 'px');
+            setFlex($(this), chartHeight + ' ' + chartHeight + ' ' + chartHeight + 'px');
+          }
+        }
+      });
+    });
+  }
+
+  function chartFigureSizes(charts) {
+
+    // sizes
+    var figureSizes = new Array(charts.length);
+
+    // check each chart
+    charts.each(function(index) {
+
+      // start with default
+      figureSizes[index] = {
+        width: _options.defaultFigWidth,
+        height: _options.defaultFigHeight
+      };
+
+      // look for data-height or data-width then knit options
+      var dataWidth = parseInt($(this).attr('data-width'));
+      var dataHeight = parseInt($(this).attr('data-height'));
+      var knitrOptions = $(this).find('.knitr-options:first');
+      var knitrWidth, knitrHeight;
+      if (knitrOptions) {
+        knitrWidth = parseInt(knitrOptions.attr('data-fig-width'));
+        knitrHeight =  parseInt(knitrOptions.attr('data-fig-height'));
+      }
+
+      // width
+      if (dataWidth)
+        figureSizes[index].width = dataWidth;
+      else if (knitrWidth)
+        figureSizes[index].width = knitrWidth;
+
+      // height
+      if (dataHeight)
+        figureSizes[index].height = dataHeight;
+      else if (knitrHeight)
+        figureSizes[index].height = knitrHeight;
+    });
+
+    // return sizes
+    return figureSizes;
+  }
+
+  function maxChartHeight(figureSizes, charts) {
+
+    // first compute the maximum height
+    var maxHeight = _options.defaultFigHeight;
+    for (var i = 0; i<figureSizes.length; i++)
+      if (figureSizes[i].height > maxHeight)
+        maxHeight = figureSizes[i].height;
+
+    // now add offests for chart title and chart notes
+    if (charts.length)
+      maxHeight = adjustedHeight(maxHeight, charts.first());
+
+    return maxHeight;
+  }
+
+  function adjustedHeight(height, chart) {
+    if (chart.length > 0) {
+      var chartTitle = chart.find('.chart-title');
+      if (chartTitle.length)
+        height += chartTitle.first().outerHeight();
+      var chartNotes = chart.find('.chart-notes');
+      if (chartNotes.length)
+        height += chartNotes.first().outerHeight();
+    }
+    return height;
+  }
+
+  function maxChartWidth(figureSizes) {
+    var maxWidth = _options.defaultFigWidth;
+    for (var i = 0; i<figureSizes.length; i++)
+      if (figureSizes[i].width > maxWidth)
+        maxWidth = figureSizes[i].width;
+    return maxWidth;
+  }
+
+  // layout a chart
+  function layoutChart(chart, forceFlex) {
+
+    // state to return
+    var result = {
+      notes: false,
+      flex: false
+    };
+
+    // extract the title
+    var title = extractTitle(chart);
+
+    // find components that apply to this container
+    var components = componentsFind(chart);
+
+    // if it's a custom component then call it and return
+    var customComponents = componentsCustom(components);
+    if (customComponents.length) {
+      componentsLayout(customComponents, title, chart);
+      result.notes = false;
+      result.flex = forceFlex || componentsFlex(customComponents);
+      return result;
+    }
+
+    // put all the content in a chart wrapper div
+    chart.addClass('chart-wrapper');
+    chart.wrapInner('<div class="chart-stage"></div>');
+    var chartContent = chart.children('.chart-stage');
+
+    // flex the content if appropriate
+    result.flex = forceFlex || componentsFlex(components);
+    if (result.flex) {
+      // add flex classes
+      chart.addClass('chart-wrapper-flex');
+      chartContent.addClass('chart-stage-flex');
+
+      // additional shim to break out of flexbox sizing
+      chartContent.wrapInner('<div class="chart-shim"></div>');
+      chartContent = chartContent.children('.chart-shim');
+    }
+
+    // set custom data-padding attribute
+    var pad = chart.attr('data-padding');
+    if (pad) {
+      if (pad === "0")
+        chart.addClass('no-padding');
+      else {
+        pad = pad + 'px';
+        chartContent.css('left', pad)
+                    .css('top', pad)
+                    .css('right', pad)
+                    .css('bottom', pad)
+      }
+    }
+
+    // call compoents
+    componentsLayout(components, title, chartContent);
+
+    // also activate components on shiny output
+    findShinyOutput(chartContent).on('shiny:value',
+      function(event) {
+        var element = $(event.target);
+        setTimeout(function() {
+
+          // see if we opted out of flex based on our output (for shiny
+          // we can't tell what type of output we have until after the
+          // value is bound)
+          var components = componentsFind(element);
+          var flex = forceFlex || componentsFlex(components);
+          if (!flex) {
+            chart.css('height', "");
+            setFlex(chart, "");
+            chart.removeClass('chart-wrapper-flex');
+            chartContent.removeClass('chart-stage-flex');
+            chartContent.children().unwrap();
+          }
+
+          // perform layout
+          componentsLayout(components, title, element.parent());
+        }, 10);
+      });
+
+    // add the title
+    var chartTitle = $('<div class="chart-title"></div>');
+    chartTitle.append(title);
+    chart.prepend(chartTitle);
+
+    // add the notes section
+    var chartNotes = $('<div class="chart-notes"></div>');
+    chartNotes.html('&nbsp;');
+    chart.append(chartNotes);
+
+    // attempt to extract notes if we have a component
+    if (components.length)
+      result.notes = extractChartNotes(chartContent, chartNotes);
+
+    // return result
+    return result;
+  }
+
+  // build a tabset from a section div with the .tabset class
+  function layoutTabset(tabset) {
+
+    // check for fade option
+    var fade = tabset.hasClass("tabset-fade");
+    var pills = tabset.hasClass("tabset-pills");
+    var navClass = pills ? "nav-pills" : "nav-tabs";
+
+    // determine the heading level of the tabset and tabs
+    var match = tabset.attr('class').match(/level(\d) /);
+    if (match === null)
+      return;
+    var tabsetLevel = Number(match[1]);
+    var tabLevel = tabsetLevel + 1;
+
+    // find all subheadings immediately below
+    var tabs = tabset.find("div.section.level" + tabLevel);
+    if (!tabs.length)
+      return;
+
+    // create tablist and tab-content elements
+    var tabList = $('<ul class="nav ' + navClass + '" role="tablist"></ul>');
+    $(tabs[0]).before(tabList);
+    var tabContent = $('<div class="tab-content"></div>');
+    $(tabs[0]).before(tabContent);
+
+    // build the tabset
+    var activeTab = 0;
+    tabs.each(function(i) {
+
+      // get the tab div
+      var tab = $(tabs[i]);
+
+      // get the id then sanitize it for use with bootstrap tabs
+      var id = tab.attr('id');
+
+      // see if this is marked as the active tab
+      if (tab.hasClass('active'))
+        activeTab = i;
+
+      // sanitize the id for use with bootstrap tabs
+      id = id.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_');
+      tab.attr('id', id);
+
+      // get the heading element within it and grab it's text
+      var heading = tab.find('h' + tabLevel + ':first');
+      var headingDom = heading.contents();
+
+      // build and append the tab list item
+      var a = $('<a role="tab" data-toggle="tab" data-bs-toggle="tab" class="nav-link"></a>');
+      a.append(headingDom);
+      a.attr('href', '#' + id);
+      a.attr('aria-controls', id);
+      var li = $('<li role="presentation" class="nav-item"></li>');
+      li.append(a);
+      tabList.append(li);
+
+      // set it's attributes
+      tab.attr('role', 'tabpanel');
+      tab.addClass('tab-pane');
+      tab.addClass('tabbed-pane');
+      tab.addClass('no-title');
+      if (fade)
+        tab.addClass('fade');
+
+      // move it into the tab content div
+      tab.detach().appendTo(tabContent);
+    });
+
+    // set active tab
+    $(tabList.children()[activeTab]).tab("show");
+    var active = $(tabContent.children('div.section')[activeTab]);
+    active.addClass('active');
+    if (fade)
+      active.addClass('in');
+
+    // add nav-tabs-custom
+    tabset.addClass('nav-tabs-custom');
+
+    // internal layout is dashboard-column with tab-content flexing
+    tabset.addClass('dashboard-column');
+    setFlex(tabContent, 1);
+  }
+
+  // one time global initialization for components
+  function componentsInit(dashboardContainer) {
+    for (var i=0; i<window.FlexDashboardComponents.length; i++) {
+      var component = window.FlexDashboardComponents[i];
+      if (component.init)
+        component.init(dashboardContainer);
+    }
+  }
+
+  // find components that apply within a container
+  function componentsFind(container) {
+
+    // look for components
+    var components = [];
+    for (var i=0; i<window.FlexDashboardComponents.length; i++) {
+      var component = window.FlexDashboardComponents[i];
+      if (component.find(container).length)
+        components.push(component);
+    }
+
+    // if there were none then use a special flowing content component
+    // that just adds a scrollbar in fillPage mode
+    if (components.length == 0) {
+      components.push({
+        find: function(container) {
+          return container;
+        },
+
+        flex: function(fillPage) {
+          return fillPage;
+        },
+
+        layout: function(title, container, element, fillPage) {
+          if (fillPage) {
+            container.addClass('flowing-content-shim');
+            container.addClass('flowing-content-container');
+          }
+        }
+      });
+    }
+
+    return components;
+  }
+
+  // if there is a custom component then pick it out
+  function componentsCustom(components) {
+    var customComponent = [];
+    for (var i=0; i<components.length; i++)
+      if (components[i].type === "custom") {
+        customComponent.push(components[i]);
+        break;
+      }
+    return customComponent;
+  }
+
+  // query all components for flex
+  function componentsFlex(components) {
+
+    // no components at all means no flex
+    if (components.length === 0)
+      return false;
+
+    // otherwise query components (assume true unless we see false)
+    var isMobile = isMobilePhone();
+    for (var i=0; i<components.length; i++)
+      if (components[i].flex && !components[i].flex(_options.fillPage))
+        return false;
+    return true;
+  }
+
+  // layout all components
+  function componentsLayout(components, title, container) {
+    var isMobile = isMobilePhone();
+    for (var i=0; i<components.length; i++) {
+      var element = components[i].find(container);
+      if (components[i].layout) {
+        // call layout (don't call other components if it returns false)
+        var result = components[i].layout(title, container, element, _options.fillPage);
+        if (result === false)
+          return;
+      }
+    }
+  }
+
+  // get a reference to the h3, discover it's inner html, and remove it
+  function extractTitle(container) {
+    var h3 = container.children('h3').first();
+    var title = '';
+    if (!container.hasClass('no-title'))
+      title = h3.contents();
+    h3.detach();
+    return title;
+  }
+
+  // extract chart notes
+  function extractChartNotes(chartContent, chartNotes) {
+    // look for a terminating blockquote or image caption
+    var blockquote = chartContent.children('blockquote:last-child');
+    var caption = chartContent.children('div.image-container')
+                              .children('p.caption');
+    if (blockquote.length) {
+      chartNotes.empty().append(blockquote.children('p:first-child').contents());
+      blockquote.remove();
+      return true;
+    } else if (caption.length) {
+      chartNotes.empty().append(caption.contents());
+      caption.remove();
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function findShinyOutput(chartContent) {
+    return chartContent.find('.shiny-text-output, .shiny-html-output');
+  }
+
+  // safely detect rendering on a mobile phone
+  function isMobilePhone() {
+    try
+    {
+      return ! window.matchMedia("only screen and (min-width: 768px)").matches;
+    }
+    catch(e) {
+      return false;
+    }
+  }
+
+  function isFillPage() {
+    return _options.fillPage;
+  }
+
+  // detect portrait mode
+  function isPortrait() {
+    return ($(window).width() < $(window).height());
+  }
+
+  // safely detect rendering on a tablet
+  function isTablet() {
+    try
+    {
+      return window.matchMedia("only screen and (min-width: 769px) and (max-width: 992px)").matches;
+    }
+    catch(e) {
+      return false;
+    }
+  }
+
+  // test whether this is a shiny doc
+  function isShinyDoc() {
+    return (typeof(window.Shiny) !== "undefined" && !!window.Shiny.outputBindings);
+  }
+
+  // set flex using vendor specific prefixes
+  function setFlex(el, flex) {
+    el.css('-webkit-box-flex', flex)
+      .css('-webkit-flex', flex)
+      .css('-ms-flex', flex)
+      .css('flex', flex);
+  }
+
+  // support bookmarking of pages
+  function handleLocationHash() {
+
+    // restore tab/page from bookmark
+    var hash = window.decodeURIComponent(window.location.hash);
+    if (hash.length > 0) {
+      // Update the tab without .showPage() so that we don't change page history
+      $('ul.nav a[href="' + hash + '"]').tab('show');
+    }
+
+    // navigate to a tab when the history changes
+    window.addEventListener("popstate", function(e) {
+      var hash = window.decodeURIComponent(window.location.hash);
+      var activeTab = $('ul.nav a[href="' + hash + '"]');
+      if (activeTab.length) {
+        activeTab.tab('show');
+      } else {
+        // returning to the base page URL without a hash activates first tab
+        $('ul.nav a:first').tab('show');
+      }
+    });
+
+    // add a hash to the URL when the user clicks on a tab/page
+    $('.navbar-nav a[data-toggle="tab"]').on('click', function(e) {
+      var baseUrl = FlexDashboardUtils.urlWithoutHash(window.location.href);
+      var hash = FlexDashboardUtils.urlHash($(this).attr('href'));
+      var href = baseUrl + hash;
+      FlexDashboardUtils.setLocation(href);
+    });
+
+    // handle clicks of other links that should activate pages
+    var navPages = $('ul.navbar-nav li a[data-toggle=tab]');
+    navPages.each(function() {
+      var href =  $(this).attr('href');
+      var links = $('a[href="' + href + '"][data-toggle!=tab]');
+      links.each(function() {
+        $(this).on('click', function(e) {
+          window.FlexDashboardUtils.showPage(href);
+        });
+      });
+    });
+  }
+
+  // tweak Prism highlighting
+  function initPrismHighlighting() {
+
+    if (window.Prism) {
+      Prism.languages.insertBefore('r', 'comment', {
+        'heading': [
+          {
+            // title 1
+        	  // =======
+
+        	  // title 2
+        	  // -------
+        	  pattern: /\w+.*(?:\r?\n|\r)(?:====+|----+)/,
+            alias: 'operator'
+          },
+          {
+            // ### title 3
+            pattern: /(^\s*)###[^#].+/m,
+            lookbehind: true,
+            alias: 'operator'
+          }
+        ]
+      });
+
+      // prism highlight
+      Prism.highlightAll();
+    }
+  }
+
+  FlexDashboard.prototype = {
+    constructor: FlexDashboard,
+    init: init,
+    isMobilePhone: isMobilePhone,
+    isFillPage: isFillPage
+  };
+
+  return FlexDashboard;
+
+})();
+
+// utils
+window.FlexDashboardUtils = {
+  resizableImage: function(img) {
+    var src = img.attr('src');
+    var url = 'url("' + src + '")';
+    img.parent().css('background', url)
+                .css('background-size', 'contain')
+                .css('background-repeat', 'no-repeat')
+                .css('background-position', 'center')
+                .addClass('image-container');
+  },
+  setLocation: function(href) {
+    if (history && history.pushState) {
+      history.pushState(null, null, href);
+    } else {
+      window.location.replace(href);
+    }
+    setTimeout(function() {
+        window.scrollTo(0, 0);
+    }, 10);
+  },
+  showPage: function(href) {
+    $('ul.navbar-nav li a[href="' + href + '"]').tab('show');
+    var baseUrl = this.urlWithoutHash(window.location.href);
+    var loc = baseUrl + href;
+    this.setLocation(loc);
+  },
+  showLinkedValue: function(href) {
+    // check for a page link
+    if ($('ul.navbar-nav li a[data-toggle=tab][href="' + href + '"]').length > 0)
+      this.showPage(href);
+    else
+      window.open(href);
+  },
+  urlWithoutHash: function(url) {
+    var hashLoc = url.indexOf('#');
+    if (hashLoc != -1)
+      return url.substring(0, hashLoc);
+    else
+      return url;
+  },
+  urlHash: function(url) {
+    var hashLoc = url.indexOf('#');
+    if (hashLoc != -1)
+      return url.substring(hashLoc);
+    else
+      return "";
+  }
+};
+
+window.FlexDashboard = new FlexDashboard();
+
+// empty content
+window.FlexDashboardComponents.push({
+  find: function(container) {
+    if (container.find('p').length == 0)
+      return container;
+    else
+      return $();
+  }
+})
+
+// plot image
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    return container.children('p')
+                    .children('img:only-child');
+  },
+
+  layout: function(title, container, element, fillPage) {
+    FlexDashboardUtils.resizableImage(element);
+  }
+});
+
+// plot image (figure style)
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    return container.children('div.figure').children('img');
+  },
+
+  layout: function(title, container, element, fillPage) {
+    FlexDashboardUtils.resizableImage(element);
+  }
+});
+
+// htmlwidget
+window.FlexDashboardComponents.push({
+
+  init: function(dashboardContainer) {
+    // trigger "shown" after initial layout to force static htmlwidgets
+    // in runtime: shiny to be resized after the dom has been transformed
+    dashboardContainer.on('flexdashboard:layoutcomplete', function(event) {
+      setTimeout(function() {
+        dashboardContainer.trigger('shown');
+      }, 200);
+    });
+  },
+
+  find: function(container) {
+    return container.children('div[id^="htmlwidget-"],div.html-widget');
+  }
+});
+
+// gauge
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    return container.children('div.html-widget.gauge');
+  },
+
+  flex: function(fillPage) {
+    return false;
+  },
+
+  layout: function(title, container, element, fillPage) {
+
+
+  }
+
+});
+
+// shiny output
+window.FlexDashboardComponents.push({
+  find: function(container) {
+    return container.children('div[class^="shiny-"]');
+  }
+});
+
+// bootstrap table
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    var bsTable = container.find('table.table');
+    if (bsTable.length !== 0)
+      return bsTable;
+    else
+      return container.find('tr.header').parent('thead').parent('table');
+  },
+
+  flex: function(fillPage) {
+    return fillPage;
+  },
+
+  layout: function(title, container, element, fillPage) {
+
+    // alias variables
+    var bsTable = element;
+
+    // fixup xtable generated tables with a proper thead
+    var headerRow = bsTable.find('tbody > tr:first-child > th').parent();
+    if (headerRow.length > 0) {
+      var thead = $('<thead></thead>');
+      bsTable.prepend(thead);
+      headerRow.detach().appendTo(thead);
+    }
+
+    // improve appearance
+    container.addClass('bootstrap-table');
+
+    // for fill page provide scrolling w/ sticky headers
+    if (fillPage) {
+      // force scrollbar on overflow
+      container.addClass('flowing-content-shim');
+
+      // stable table headers when scrolling
+      bsTable.stickyTableHeaders({
+        scrollableArea: container
+      });
+    }
+  }
+});
+
+// embedded shiny app
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    return container.find('iframe.shiny-frame');
+  },
+
+  flex: function(fillPage) {
+    return fillPage;
+  },
+
+  layout: function(title, container, element, fillPage) {
+    if (fillPage) {
+      element.attr('height', '100%');
+    } else {
+      // provide default height if necessary
+      var height = element.get(0).style.height;
+      if (!height)
+        height = element.attr('height');
+      if (!height)
+        element.attr('height', 500);
+    }
+  }
+});
+
+// shiny fillRow or fillCol
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    return container.find('.flexfill-container');
+  },
+
+  flex: function(fillPage) {
+    return fillPage;
+  },
+
+  layout: function(title, container, element, fillPage) {
+    if (fillPage)
+      element.css('height', '100%');
+    else {
+      // provide default height if necessary
+      var height = element.get(0).style.height;
+      if (height === "100%" || height === "auto" || height === "initial" ||
+          height === "inherit" || !height) {
+        element.css('height', 500);
+      }
+    }
+  }
+});
+
+// valueBox
+window.FlexDashboardComponents.push({
+
+  type: "custom",
+
+  find: function(container) {
+    if (container.find('span.value-output, .shiny-valuebox-output').length)
+      return container;
+    else
+      return $();
+  },
+
+  flex: function(fillPage) {
+    return false;
+  },
+
+  layout: function(title, container, element, fillPage) {
+
+    // alias variables
+    var chartTitle = title;
+    var valueBox = element;
+
+    // add value-box class to container
+    container.addClass('value-box');
+
+    // value paragraph
+    var value = $('<p class="value"></p>');
+
+    // if we have shiny-text-output then just move it in
+    var valueOutputSpan = [];
+    var shinyOutput = valueBox.find('.shiny-valuebox-output').detach();
+    if (shinyOutput.length) {
+      valueBox.children().remove();
+      shinyOutput.html("&mdash;");
+      value.append(shinyOutput);
+    } else {
+      // extract the value (remove leading vector index)
+      var chartValue = valueBox.text().trim();
+      chartValue = chartValue.replace("[1] ", "");
+      valueOutputSpan = valueBox.find('span.value-output').detach();
+      valueBox.children().remove();
+      value.text(chartValue);
+    }
+
+    // caption
+    var caption = $('<p class="caption"></p>');
+    caption.append(chartTitle);
+
+    // build inner div for value box and add it
+    var inner = $('<div class="inner"></div>');
+    inner.append(value);
+    inner.append(caption);
+    valueBox.append(inner);
+
+    // add icon if specified
+    var icon = $('<div class="icon"><i></i></div>');
+    valueBox.append(icon);
+    function setIcon(chartIcon) {
+      var iconLib = "";
+      var iconSplit = chartIcon.split(" ");
+      if (iconSplit.length > 1) {
+        iconLib = iconSplit[0];
+        chartIcon = iconSplit.slice(1).join(" ");
+      } else {
+        var components = chartIcon.split("-");
+        if (components.length > 1)
+          iconLib = components[0];
+      }
+      icon.children('i').attr('class', iconLib + ' ' + chartIcon);
+    }
+    var chartIcon = valueBox.attr('data-icon');
+    if (chartIcon)
+      setIcon(chartIcon);
+
+    // handle data attributes in valueOutputSpan
+    function handleValueOutput(valueOutput) {
+
+      // caption
+      var dataCaption = valueOutput.attr('data-caption');
+      if (dataCaption)
+        caption.html(dataCaption);
+
+      // icon
+      var dataIcon = valueOutput.attr('data-icon');
+      if (dataIcon)
+        setIcon(dataIcon);
+
+      // If valueBox(color=) was an accent color, this attr should
+      // be populated with the accent color and the relevant CSS comes
+      // in through HTML dependencies
+      var dataColorAccent = valueOutput.attr('data-color-accent');
+      var valueBoxClasses = "value-box-" + (["primary", "info", "danger", "warning", "success"].join(" value-box-"));
+      if (dataColorAccent) {
+        valueBox.removeClass(valueBoxClasses);
+        valueBox.addClass('value-box-' + dataColorAccent);
+      }
+
+      // If valueBox(color=) was a CSS color, these other data-color-*
+      // attrs will be populated
+      var dataColor = valueOutput.attr('data-color');
+      if (dataColor) {
+        valueBox.removeClass(valueBoxClasses);
+        valueBox.css('background-color', dataColor);
+      }
+      var dataColorText = valueOutput.attr('data-color-text');
+      if (dataColorText) {
+        valueBox.find(".inner").css('color', dataColorText);
+      }
+      var dataColorIcon = valueOutput.attr('data-color-icon');
+      if (dataColorIcon) {
+        valueBox.find(".icon").css('color', dataColorIcon);
+      }
+
+      // url
+      var dataHref = valueOutput.attr('data-href');
+      if (dataHref) {
+        valueBox.addClass('linked-value');
+        valueBox.off('click.value-box');
+        valueBox.on('click.value-box', function(e) {
+          window.FlexDashboardUtils.showLinkedValue(dataHref);
+        });
+      }
+    }
+
+    // check for a valueOutputSpan
+    if (valueOutputSpan.length > 0) {
+      handleValueOutput(valueOutputSpan);
+    }
+
+    // if we have a shinyOutput then bind a listener to handle
+    // new valueOutputSpan values
+    shinyOutput.on('shiny:value',
+      function(event) {
+        var element = $(event.target);
+        setTimeout(function() {
+          var valueOutputSpan = element.find('span.value-output');
+          if (valueOutputSpan.length > 0)
+            handleValueOutput(valueOutputSpan);
+        }, 10);
+      }
+    );
+  }
+});
+</script>
+
+<div id="dashboard-container">
+
+<div id="column" class="section level2" data-width="650">
+<h2>Column</h2>
+<div id="line-plot-for-temperature-trends" class="section level3">
+<h3>Line Plot for Temperature Trends</h3>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-4b97a139f40f723c15a1" style="width:576px;height:460.8px;"></div>
+<script type="application/json" data-for="htmlwidget-4b97a139f40f723c15a1">{"x":{"visdat":{"b8b219fccabd":["function () ","plotlyVisDat"]},"cur_data":"b8b219fccabd","attrs":{"b8b219fccabd":{"x":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"y":{},"type":"scatter","mode":"lines","name":"Min Temperature (°C)","line":{"color":"navyblue"},"alpha":0.5,"inherit":true},"b8b219fccabd.1":{"x":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"y":{},"type":"scatter","mode":"lines","name":"Max Temperature (°C)","line":{"color":"firebrick"},"alpha":0.5,"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Temperature Trends Over Time","xaxis":{"domain":[0,1],"automargin":true,"title":"Date"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Temperature (°C)"},"legend":{"orientation":"h","x":0.5,"xanchor":"center","y":-0.20000000000000001},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["1981-01-05","1981-02-07","1981-02-08","1981-02-17","1981-02-28","1981-03-03","1981-03-31","1981-04-29","1981-05-06","1981-05-15","1981-05-26","1981-05-28","1981-06-04","1981-06-08","1981-06-24","1981-06-25","1981-06-27","1981-07-23","1981-07-30","1981-08-06","1981-08-08","1981-08-14","1981-08-31","1981-09-12","1981-09-13","1981-10-03","1981-11-04","1981-11-19","1981-11-26","1981-12-17","1981-12-19","1981-12-21","1981-12-29","1982-01-10","1982-02-04","1982-02-20","1982-02-26","1982-03-26","1982-04-01","1982-04-15","1982-04-18","1982-04-22","1982-04-25","1982-04-28","1982-05-03","1982-05-05","1982-05-14","1982-06-09","1982-06-22","1982-06-23","1982-06-26","1982-08-08","1982-09-12","1982-10-09","1982-10-13","1982-10-16","1982-10-29","1982-10-31","1982-11-03","1982-11-08","1982-11-19","1982-11-23","1982-11-26","1982-11-27","1982-12-05","1982-12-09","1982-12-28","1983-01-05","1983-01-09","1983-01-13","1983-01-20","1983-01-26","1983-01-29","1983-02-08","1983-03-04","1983-03-11","1983-03-24","1983-03-26","1983-04-15","1983-04-20","1983-05-07","1983-05-14","1983-05-15","1983-05-31","1983-06-08","1983-06-21","1983-07-08","1983-07-20","1983-08-03","1983-08-06","1983-08-07","1983-09-04","1983-09-04","1983-09-27","1983-09-28","1983-10-07","1983-10-15","1983-10-17","1983-10-21","1983-10-30","1983-11-18","1983-11-22","1983-11-28","1983-12-12","1983-12-18","1983-12-26","1983-12-28","1984-01-15","1984-01-21","1984-01-21","1984-01-23","1984-02-03","1984-02-14","1984-02-25","1984-03-04","1984-03-11","1984-03-16","1984-03-26","1984-03-27","1984-04-02","1984-04-02","1984-04-16","1984-04-19","1984-04-26","1984-05-02","1984-05-07","1984-05-20","1984-06-07","1984-06-15","1984-06-22","1984-06-22","1984-07-09","1984-07-10","1984-07-19","1984-07-23","1984-07-25","1984-09-02","1984-09-03","1984-09-06","1984-10-03","1984-11-15","1984-11-15","1984-11-22","1984-12-08","1984-12-09","1984-12-31","1985-01-15","1985-01-29","1985-02-06","1985-03-01","1985-03-03","1985-03-11","1985-03-16","1985-03-25","1985-04-04","1985-04-10","1985-04-19","1985-05-01","1985-05-01","1985-05-17","1985-05-27","1985-05-29","1985-06-09","1985-06-12","1985-06-15","1985-06-18","1985-07-22","1985-07-27","1985-08-03","1985-08-16","1985-08-25","1985-09-02","1985-09-05","1985-10-07","1985-10-13","1985-10-17","1985-10-27","1985-11-02","1985-11-30","1985-12-01","1985-12-04","1985-12-07","1985-12-08","1985-12-14","1985-12-18","1985-12-21","1986-01-07","1986-02-23","1986-03-08","1986-03-09","1986-03-28","1986-04-20","1986-05-16","1986-05-26","1986-06-16","1986-06-18","1986-06-27","1986-07-07","1986-08-27","1986-09-03","1986-09-17","1986-09-18","1986-09-21","1986-09-24","1986-09-30","1986-10-12","1986-10-21","1986-10-30","1986-11-13","1986-11-23","1986-12-07","1987-01-03","1987-01-07","1987-01-13","1987-01-18","1987-01-24","1987-01-25","1987-01-28","1987-02-08","1987-02-10","1987-02-26","1987-03-30","1987-04-09","1987-04-25","1987-05-23","1987-05-28","1987-06-09","1987-06-12","1987-06-12","1987-06-19","1987-06-29","1987-07-25","1987-09-04","1987-09-10","1987-09-14","1987-09-17","1987-10-18","1987-10-18","1987-10-20","1987-11-01","1987-11-04","1987-11-22","1987-11-22","1987-12-02","1987-12-11","1987-12-21","1987-12-24","1988-01-03","1988-01-06","1988-01-11","1988-01-29","1988-02-05","1988-02-17","1988-02-19","1988-03-01","1988-03-17","1988-03-18","1988-03-25","1988-04-01","1988-04-25","1988-05-09","1988-05-26","1988-06-23","1988-07-19","1988-07-29","1988-08-06","1988-09-11","1988-09-21","1988-09-26","1988-10-04","1988-10-10","1988-10-12","1988-10-12","1988-10-21","1988-10-30","1988-11-10","1988-12-22","1988-12-24","1989-01-15","1989-01-15","1989-01-19","1989-02-13","1989-02-26","1989-03-05","1989-03-06","1989-03-19","1989-04-18","1989-05-22","1989-05-25","1989-05-25","1989-05-29","1989-06-11","1989-06-15","1989-06-22","1989-07-09","1989-07-11","1989-08-03","1989-08-30","1989-08-30","1989-08-31","1989-09-16","1989-10-04","1989-10-10","1989-11-07","1989-11-07","1989-11-20","1989-11-21","1989-12-05","1989-12-09","1989-12-09","1989-12-30","1990-01-13","1990-01-16","1990-01-26","1990-02-10","1990-04-01","1990-04-18","1990-04-22","1990-05-18","1990-05-25","1990-05-26","1990-06-03","1990-06-17","1990-06-25","1990-06-25","1990-07-20","1990-07-22","1990-08-06","1990-08-08","1990-08-21","1990-08-30","1990-09-07","1990-10-09","1990-10-15","1990-10-19","1990-11-02","1990-11-10","1990-11-12","1990-11-19","1990-12-01","1990-12-02","1990-12-06","1990-12-07","1990-12-25","1991-01-03","1991-01-10","1991-01-13","1991-02-03","1991-02-16","1991-02-24","1991-02-26","1991-03-05","1991-03-10","1991-03-24","1991-03-26","1991-03-28","1991-04-09","1991-04-14","1991-04-23","1991-05-24","1991-05-27","1991-06-19","1991-06-27","1991-06-28","1991-07-02","1991-07-14","1991-07-15","1991-07-25","1991-08-01","1991-09-03","1991-09-15","1991-09-25","1991-09-26","1991-10-02","1991-10-14","1991-10-17","1991-10-22","1991-10-22","1991-11-14","1991-11-17","1991-12-05","1991-12-07","1991-12-07","1992-01-14","1992-01-22","1992-01-31","1992-02-09","1992-03-19","1992-04-09","1992-04-15","1992-04-18","1992-04-26","1992-05-04","1992-05-17","1992-05-31","1992-06-05","1992-06-14","1992-07-14","1992-07-29","1992-08-04","1992-08-09","1992-08-09","1992-08-15","1992-09-14","1992-09-15","1992-09-17","1992-09-18","1992-09-25","1992-10-29","1992-11-07","1992-11-14","1992-11-24","1992-11-27","1992-12-06","1992-12-07","1992-12-16","1992-12-25","1993-01-07","1993-01-10","1993-01-16","1993-01-22","1993-01-26","1993-01-29","1993-02-04","1993-02-05","1993-02-12","1993-03-10","1993-03-22","1993-04-08","1993-05-01","1993-05-02","1993-05-05","1993-05-06","1993-05-11","1993-05-15","1993-05-27","1993-05-30","1993-06-10","1993-06-15","1993-06-25","1993-07-13","1993-07-24","1993-08-02","1993-08-04","1993-08-05","1993-08-09","1993-08-16","1993-08-21","1993-08-27","1993-09-02","1993-09-02","1993-09-11","1993-09-29","1993-10-14","1993-10-16","1993-10-17","1993-11-27","1993-11-30","1993-12-05","1993-12-21","1993-12-30","1993-12-31","1994-01-17","1994-01-17","1994-01-17","1994-01-26","1994-03-27","1994-04-20","1994-05-28","1994-06-16","1994-06-18","1994-07-20","1994-08-24","1994-08-27","1994-09-11","1994-09-13","1994-09-25","1994-10-13","1994-11-03","1994-11-06","1994-11-07","1994-11-12","1994-12-04","1994-12-16","1994-12-20","1994-12-24","1994-12-28","1995-01-07","1995-01-11","1995-02-01","1995-02-09","1995-02-25","1995-03-17","1995-03-17","1995-04-12","1995-04-20","1995-05-18","1995-05-20","1995-05-25","1995-06-15","1995-06-17","1995-06-25","1995-07-08","1995-07-22","1995-07-27","1995-07-28","1995-07-29","1995-08-29","1995-08-30","1995-09-10","1995-09-22","1995-10-01","1995-10-01","1995-10-06","1995-10-10","1995-10-17","1995-10-24","1995-11-16","1995-11-17","1995-11-25","1995-12-05","1995-12-21","1995-12-30","1996-01-11","1996-01-18","1996-01-20","1996-02-06","1996-03-02","1996-03-09","1996-04-12","1996-04-14","1996-04-20","1996-04-26","1996-05-01","1996-05-26","1996-06-08","1996-06-25","1996-07-02","1996-07-03","1996-07-06","1996-07-23","1996-07-25","1996-07-25","1996-08-05","1996-08-12","1996-08-14","1996-08-18","1996-09-11","1996-09-28","1996-10-11","1996-10-17","1996-10-31","1996-11-14","1996-12-03","1996-12-10","1996-12-12","1996-12-31","1997-01-09","1997-01-27","1997-01-29","1997-01-30","1997-03-06","1997-03-10","1997-03-11","1997-03-14","1997-04-02","1997-05-02","1997-05-09","1997-05-16","1997-05-30","1997-06-03","1997-07-26","1997-08-27","1997-09-04","1997-10-20","1997-10-20","1997-10-31","1997-11-26","1997-12-16","1997-12-29","1998-01-03","1998-01-08","1998-01-12","1998-01-13","1998-02-08","1998-02-10","1998-02-17","1998-02-19","1998-02-19","1998-03-13","1998-03-16","1998-03-20","1998-04-08","1998-04-18","1998-04-19","1998-04-26","1998-04-27","1998-05-15","1998-05-16","1998-05-28","1998-06-05","1998-07-01","1998-07-13","1998-08-18","1998-08-23","1998-08-27","1998-09-20","1998-09-20","1998-09-24","1998-10-12","1998-10-22","1998-10-23","1998-10-23","1998-11-22","1998-11-22","1998-12-02","1998-12-14","1998-12-17","1999-01-21","1999-02-02","1999-02-07","1999-02-15","1999-02-24","1999-02-27","1999-03-15","1999-03-16","1999-04-01","1999-04-04","1999-04-24","1999-05-02","1999-05-06","1999-05-12","1999-06-07","1999-06-19","1999-06-23","1999-07-13","1999-07-21","1999-08-01","1999-08-19","1999-09-28","1999-10-03","1999-10-20","1999-10-21","1999-10-23","1999-11-19","1999-11-22","1999-11-30","1999-12-08","1999-12-14","1999-12-16","1999-12-30","2000-01-01","2000-01-09","2000-01-21","2000-01-30","2000-02-03","2000-02-04","2000-02-26","2000-05-07","2000-05-17","2000-05-18","2000-06-09","2000-06-12","2000-06-25","2000-07-03","2000-07-17","2000-07-22","2000-07-28","2000-08-07","2000-08-12","2000-08-27","2000-09-28","2000-10-06","2000-10-07","2000-10-07","2000-10-12","2000-10-18","2000-11-18","2000-12-17","2001-01-18","2001-01-18","2001-01-30","2001-02-01","2001-02-04","2001-02-11","2001-03-10","2001-03-15","2001-04-18","2001-04-24","2001-04-26","2001-05-23","2001-05-31","2001-06-06","2001-06-13","2001-06-25","2001-06-30","2001-07-04","2001-07-19","2001-07-22","2001-09-06","2001-09-12","2001-10-24","2001-10-26","2001-11-17","2001-11-21","2001-11-23","2001-11-25","2001-12-22","2001-12-24","2002-01-08","2002-01-23","2002-01-27","2002-02-21","2002-02-26","2002-03-27","2002-04-02","2002-04-10","2002-04-17","2002-04-23","2002-06-07","2002-06-10","2002-06-11","2002-06-12","2002-06-30","2002-07-04","2002-07-13","2002-07-26","2002-07-31","2002-08-04","2002-08-25","2002-08-28","2002-09-08","2002-09-13","2002-09-16","2002-09-21","2002-09-30","2002-10-12","2002-10-17","2002-10-22","2002-10-25","2002-10-26","2002-12-16","2002-12-22","2003-01-03","2003-01-09","2003-01-24","2003-02-19","2003-02-20","2003-03-08","2003-03-11","2003-03-14","2003-03-20","2003-03-20","2003-03-25","2003-03-30","2003-04-22","2003-04-24","2003-05-07","2003-05-14","2003-05-24","2003-07-16","2003-07-26","2003-08-13","2003-08-17","2003-08-20","2003-08-25","2003-09-06","2003-09-08","2003-10-06","2003-10-12","2003-10-18","2003-10-28","2003-11-03","2003-11-10","2003-11-27","2003-12-03","2003-12-04","2003-12-14","2003-12-31","2004-01-11","2004-01-16","2004-02-11","2004-02-13","2004-02-14","2004-02-25","2004-03-11","2004-03-13","2004-03-14","2004-04-08","2004-04-27","2004-04-28","2004-05-09","2004-05-10","2004-05-19","2004-05-21","2004-05-22","2004-06-12","2004-06-28","2004-07-01","2004-07-12","2004-07-15","2004-07-30","2004-08-01","2004-09-10","2004-10-21","2004-10-31","2004-11-05","2004-11-06","2004-11-19","2004-11-25","2004-12-01","2005-01-02","2005-01-04","2005-01-24","2005-02-11","2005-02-16","2005-02-25","2005-03-04","2005-03-06","2005-03-10","2005-05-06","2005-05-13","2005-05-15","2005-05-20","2005-05-29","2005-06-06","2005-06-08","2005-06-11","2005-06-13","2005-06-19","2005-07-03","2005-07-06","2005-07-11","2005-07-13","2005-07-14","2005-07-24","2005-07-25","2005-07-30","2005-08-09","2005-08-21","2005-08-25","2005-09-13","2005-09-27","2005-09-30","2005-10-14","2005-10-25","2005-10-27","2005-11-19","2005-11-21","2005-11-26","2005-12-11","2005-12-12","2005-12-30","2006-01-04","2006-01-08","2006-02-06","2006-02-11","2006-02-25","2006-03-21","2006-03-26","2006-03-27","2006-03-28","2006-04-02","2006-04-09","2006-06-29","2006-07-01","2006-07-24","2006-07-31","2006-08-08","2006-08-09","2006-09-04","2006-09-08","2006-09-13","2006-09-17","2006-09-21","2006-09-28","2006-10-06","2006-10-06","2006-10-26","2006-11-10","2006-11-26","2006-12-17","2007-01-13","2007-01-15","2007-02-09","2007-02-20","2007-02-24","2007-02-24","2007-02-25","2007-03-23","2007-03-25","2007-04-13","2007-04-15","2007-05-06","2007-05-11","2007-05-18","2007-05-26","2007-06-06","2007-06-27","2007-07-15","2007-08-01","2007-08-01","2007-08-25","2007-09-04","2007-09-05","2007-09-23","2007-09-24","2007-10-11","2007-10-28","2007-10-30","2007-11-24","2007-12-16","2007-12-17","2008-02-21","2008-03-18","2008-03-22","2008-04-19","2008-05-14","2008-05-15","2008-05-18","2008-05-23","2008-06-01","2008-06-16","2008-07-01","2008-07-06","2008-07-19","2008-07-25","2008-08-08","2008-09-18","2008-10-01","2008-10-25","2008-11-01","2008-11-01","2008-11-17","2008-12-04","2008-12-09","2008-12-10","2008-12-19","2008-12-20","2008-12-23","2008-12-24","2008-12-25","2008-12-27","2008-12-31","2009-01-03","2009-01-19","2009-02-25","2009-03-06","2009-03-08","2009-05-04","2009-05-07","2009-05-17","2009-05-27","2009-06-21","2009-07-11","2009-07-11","2009-07-11","2009-08-09","2009-08-29","2009-09-27","2009-10-17","2009-10-19","2009-10-22","2009-10-26","2009-11-13","2009-12-01","2009-12-07","2009-12-28","2010-01-10","2010-03-06","2010-03-22","2010-04-04","2010-04-13","2010-04-30","2010-05-04","2010-05-05","2010-05-14","2010-05-28","2010-06-06","2010-06-06","2010-06-07","2010-06-10","2010-06-11","2010-06-22","2010-06-29","2010-06-30","2010-07-16","2010-07-19","2010-07-28","2010-08-23","2010-09-25","2010-09-27","2010-09-27","2010-10-29","2010-10-31","2010-11-06","2010-11-19","2010-12-02","2010-12-12","2010-12-18"],"y":[-23.300000000000001,-15,-11.1,2.2000000000000002,-5,-9.4000000000000004,6.0999999999999996,12.199999999999999,7.2000000000000002,7.2000000000000002,12.800000000000001,14.4,16.100000000000001,8.9000000000000004,3.8999999999999999,18.899999999999999,8.9000000000000004,3.8999999999999999,8.9000000000000004,16.100000000000001,12.800000000000001,12.199999999999999,17.800000000000001,14.4,8.3000000000000007,4.4000000000000004,5,2.7999999999999998,-7.2000000000000002,-4.4000000000000004,-17.800000000000001,-10,-3.8999999999999999,-18.899999999999999,-11.1,-1.1000000000000001,-17.800000000000001,-1.1000000000000001,0,5.5999999999999996,8.3000000000000007,-4.4000000000000004,11.1,0.59999999999999998,6.0999999999999996,10.6,5,7.7999999999999998,11.699999999999999,13.9,7.7999999999999998,15,13.9,8.3000000000000007,12.800000000000001,3.8999999999999999,-3.8999999999999999,5.5999999999999996,14.4,4.4000000000000004,-5.5999999999999996,5.5999999999999996,3.8999999999999999,-7.2000000000000002,6.7000000000000002,-15,2.7999999999999998,-10.6,0.59999999999999998,-20.600000000000001,-25,-12.800000000000001,-16.100000000000001,-7.2000000000000002,1.1000000000000001,-1.1000000000000001,-6.7000000000000002,-12.199999999999999,4.4000000000000004,-3.2999999999999998,3.2999999999999998,1.1000000000000001,12.199999999999999,7.2000000000000002,17.199999999999999,13.300000000000001,20,14.4,14.4,18.899999999999999,23.300000000000001,11.699999999999999,18.899999999999999,10.6,14.4,3.2999999999999998,5.5999999999999996,5,-5,-1.1000000000000001,-2.2000000000000002,3.8999999999999999,-7.2000000000000002,5.5999999999999996,-7.7999999999999998,-17.800000000000001,-6.7000000000000002,-14.4,-15.6,-13.9,-25,1.7,7.2000000000000002,-6.0999999999999996,-18.899999999999999,-10,-10.6,-1.7,-7.7999999999999998,-4.4000000000000004,-1.1000000000000001,3.8999999999999999,6.0999999999999996,3.8999999999999999,2.7999999999999998,5.5999999999999996,4.4000000000000004,17.800000000000001,12.800000000000001,11.1,8.3000000000000007,9.4000000000000004,7.2000000000000002,12.199999999999999,12.199999999999999,8.3000000000000007,12.800000000000001,10,3.2999999999999998,-2.2000000000000002,-7.7999999999999998,-1.7,-12.199999999999999,-5,-9.4000000000000004,-7.7999999999999998,-8.9000000000000004,-25,-11.1,-15.6,-1.7,-5.5999999999999996,-11.1,-1.7,1.1000000000000001,-2.7999999999999998,1.1000000000000001,8.3000000000000007,6.0999999999999996,10,13.9,6.7000000000000002,6.7000000000000002,8.9000000000000004,3.8999999999999999,13.300000000000001,9.4000000000000004,8.9000000000000004,5.5999999999999996,15,14.4,16.100000000000001,23.300000000000001,6.0999999999999996,7.2000000000000002,0.59999999999999998,3.8999999999999999,0,1.7,0,-8.9000000000000004,-10,0.59999999999999998,-9.4000000000000004,-8.9000000000000004,-12.199999999999999,-12.199999999999999,-1.1000000000000001,-3.2999999999999998,-16.100000000000001,0.59999999999999998,0.59999999999999998,11.1,10,11.1,6.0999999999999996,12.199999999999999,17.800000000000001,13.9,16.699999999999999,0,4.4000000000000004,8.3000000000000007,11.699999999999999,16.699999999999999,2.7999999999999998,5.5999999999999996,5.5999999999999996,-3.8999999999999999,-7.2000000000000002,-5,-3.8999999999999999,-15.6,-2.2000000000000002,-10.6,-17.800000000000001,-12.199999999999999,-20.600000000000001,-5.5999999999999996,-15.6,-2.7999999999999998,12.199999999999999,2.7999999999999998,2.7999999999999998,12.800000000000001,17.199999999999999,10.6,16.100000000000001,6.7000000000000002,16.100000000000001,19.399999999999999,21.100000000000001,3.2999999999999998,16.100000000000001,6.0999999999999996,10.6,8.9000000000000004,5,3.8999999999999999,-3.8999999999999999,10.6,-14.4,-17.800000000000001,-3.8999999999999999,-4.4000000000000004,0.59999999999999998,-2.7999999999999998,-15,-16.699999999999999,-25,-13.9,-18.899999999999999,-6.0999999999999996,-2.7999999999999998,-12.199999999999999,-4.4000000000000004,-4.4000000000000004,-5.5999999999999996,1.1000000000000001,3.2999999999999998,16.699999999999999,5,16.699999999999999,21.699999999999999,16.699999999999999,20.600000000000001,9.4000000000000004,11.699999999999999,4.4000000000000004,5.5999999999999996,0,-1.1000000000000001,1.1000000000000001,-5.5999999999999996,-2.2000000000000002,-2.7999999999999998,-1.1000000000000001,-3.8999999999999999,-1.1000000000000001,-9.4000000000000004,-0.59999999999999998,-15,-6.0999999999999996,-0.59999999999999998,-12.800000000000001,-8.9000000000000004,-2.7999999999999998,5.5999999999999996,7.2000000000000002,8.3000000000000007,7.2000000000000002,14.4,13.300000000000001,18.300000000000001,13.300000000000001,16.699999999999999,17.199999999999999,19.399999999999999,17.800000000000001,11.699999999999999,11.1,2.2000000000000002,-2.2000000000000002,-1.1000000000000001,-1.1000000000000001,-4.4000000000000004,-9.4000000000000004,-5,-15,-13.300000000000001,-31.699999999999999,-17.199999999999999,-1.7,2.7999999999999998,-2.7999999999999998,3.8999999999999999,-1.1000000000000001,2.7999999999999998,8.3000000000000007,0.59999999999999998,8.3000000000000007,15.6,12.800000000000001,12.800000000000001,11.699999999999999,21.699999999999999,16.100000000000001,15.6,11.1,13.9,9.4000000000000004,15.6,8.9000000000000004,6.0999999999999996,8.3000000000000007,8.3000000000000007,-1.7,-1.1000000000000001,-7.2000000000000002,-4.4000000000000004,-0.59999999999999998,-6.7000000000000002,-3.2999999999999998,-8.9000000000000004,-7.2000000000000002,-6.0999999999999996,-8.3000000000000007,-5.5999999999999996,-18.899999999999999,-17.800000000000001,-20.600000000000001,-7.7999999999999998,-9.4000000000000004,0.59999999999999998,-1.7,6.7000000000000002,8.3000000000000007,-1.7,0.59999999999999998,12.800000000000001,17.800000000000001,17.199999999999999,16.100000000000001,13.300000000000001,11.699999999999999,15,10.6,12.199999999999999,12.199999999999999,4.4000000000000004,15.6,11.1,8.3000000000000007,17.199999999999999,1.1000000000000001,0.59999999999999998,5.5999999999999996,-1.7,1.7,-8.9000000000000004,-2.7999999999999998,-4.4000000000000004,-4.4000000000000004,1.7,-14.4,-3.8999999999999999,-15,-9.4000000000000004,2.2000000000000002,-5.5999999999999996,0,1.7,2.7999999999999998,12.199999999999999,11.1,13.300000000000001,12.199999999999999,15.6,11.699999999999999,11.699999999999999,22.199999999999999,17.199999999999999,10,3.8999999999999999,12.199999999999999,14.4,17.199999999999999,0,-2.7999999999999998,-5.5999999999999996,-2.2000000000000002,2.2000000000000002,6.0999999999999996,-3.2999999999999998,-5.5999999999999996,-8.9000000000000004,-17.800000000000001,0,-21.699999999999999,-8.9000000000000004,1.7,-14.4,-6.0999999999999996,-13.300000000000001,-7.2000000000000002,-4.4000000000000004,-6.7000000000000002,-1.7,-0.59999999999999998,8.9000000000000004,2.2000000000000002,15.6,10,14.4,11.1,7.2000000000000002,0,16.699999999999999,17.199999999999999,18.300000000000001,17.800000000000001,13.300000000000001,16.100000000000001,12.199999999999999,10,8.9000000000000004,19.399999999999999,12.199999999999999,13.300000000000001,12.800000000000001,5.5999999999999996,6.0999999999999996,0.59999999999999998,-1.7,1.1000000000000001,11.699999999999999,-7.2000000000000002,-5.5999999999999996,2.2000000000000002,3.8999999999999999,-15.6,-14.4,-31.100000000000001,-24.399999999999999,-22.199999999999999,-19.399999999999999,-3.2999999999999998,1.7,2.7999999999999998,16.100000000000001,20,18.300000000000001,5,13.9,3.8999999999999999,18.899999999999999,13.300000000000001,5.5999999999999996,1.1000000000000001,6.7000000000000002,2.2000000000000002,-3.8999999999999999,7.7999999999999998,-16.699999999999999,1.1000000000000001,0,-11.1,1.7,-17.800000000000001,-3.2999999999999998,-8.9000000000000004,-13.300000000000001,3.8999999999999999,5,0.59999999999999998,1.1000000000000001,0.59999999999999998,1.7,10.6,12.800000000000001,12.199999999999999,15,15,15,20,16.699999999999999,21.699999999999999,15.6,20,6.0999999999999996,7.7999999999999998,7.7999999999999998,3.8999999999999999,11.1,4.4000000000000004,3.8999999999999999,9.4000000000000004,-7.7999999999999998,-13.9,-10,-7.7999999999999998,-15,-10,-8.9000000000000004,0,-11.699999999999999,-15,-10.6,-13.300000000000001,1.7,-0.59999999999999998,12.800000000000001,5,3.2999999999999998,2.7999999999999998,16.699999999999999,16.699999999999999,11.1,15,15,13.300000000000001,18.300000000000001,13.300000000000001,15.6,10.6,14.4,14.4,15.6,12.800000000000001,2.7999999999999998,2.7999999999999998,2.7999999999999998,-5,-1.1000000000000001,-1.7,0.59999999999999998,-6.7000000000000002,-13.300000000000001,-5,-13.9,-10,-6.7000000000000002,-3.2999999999999998,-2.7999999999999998,-9.4000000000000004,-5,8.9000000000000004,7.2000000000000002,9.4000000000000004,9.4000000000000004,9.4000000000000004,13.300000000000001,11.699999999999999,4.4000000000000004,0,2.2000000000000002,1.1000000000000001,-13.300000000000001,-8.3000000000000007,-11.1,6.7000000000000002,8.3000000000000007,-13.300000000000001,-13.300000000000001,-10,-5.5999999999999996,-2.7999999999999998,1.1000000000000001,3.2999999999999998,-11.699999999999999,-7.7999999999999998,0.59999999999999998,-1.1000000000000001,1.7,1.1000000000000001,0,-5,1.7,17.199999999999999,11.699999999999999,3.2999999999999998,12.800000000000001,15,18.300000000000001,14.4,15,17.199999999999999,16.100000000000001,5.5999999999999996,8.3000000000000007,0,6.7000000000000002,3.2999999999999998,5,-8.9000000000000004,-2.7999999999999998,-1.7,-6.0999999999999996,-7.2000000000000002,1.1000000000000001,-2.7999999999999998,-10.6,-7.2000000000000002,-3.2999999999999998,-5.5999999999999996,-7.2000000000000002,-1.7,1.1000000000000001,-0.59999999999999998,7.2000000000000002,12.800000000000001,2.2000000000000002,16.100000000000001,6.7000000000000002,13.300000000000001,14.4,10.6,19.399999999999999,14.4,10.6,6.0999999999999996,1.1000000000000001,7.7999999999999998,3.2999999999999998,3.8999999999999999,2.2000000000000002,-7.2000000000000002,-5.5999999999999996,-1.1000000000000001,-3.8999999999999999,1.7,-4.4000000000000004,3.2999999999999998,-12.199999999999999,-13.300000000000001,-7.7999999999999998,-2.7999999999999998,0,16.699999999999999,9.4000000000000004,10.6,16.699999999999999,21.699999999999999,19.399999999999999,18.300000000000001,15,13.300000000000001,16.100000000000001,14.4,13.300000000000001,15.6,3.8999999999999999,8.9000000000000004,1.1000000000000001,2.7999999999999998,1.1000000000000001,6.7000000000000002,-3.2999999999999998,-1.1000000000000001,-22.800000000000001,-10.6,-13.300000000000001,-6.7000000000000002,-25,-3.8999999999999999,-3.8999999999999999,1.1000000000000001,-1.7,8.3000000000000007,-1.7,13.300000000000001,1.7,10,14.4,13.300000000000001,21.100000000000001,6.7000000000000002,15,18.300000000000001,10.6,10.6,16.100000000000001,0.59999999999999998,-3.8999999999999999,-2.2000000000000002,-2.2000000000000002,12.800000000000001,-5.5999999999999996,-8.3000000000000007,-12.199999999999999,-6.7000000000000002,-3.2999999999999998,0.59999999999999998,1.1000000000000001,-4.4000000000000004,-3.2999999999999998,5,6.7000000000000002,-2.7999999999999998,12.800000000000001,12.199999999999999,16.699999999999999,23.899999999999999,11.1,16.699999999999999,4.4000000000000004,12.199999999999999,19.399999999999999,20.600000000000001,18.300000000000001,10,8.9000000000000004,6.0999999999999996,15.6,11.1,6.7000000000000002,8.9000000000000004,6.0999999999999996,3.2999999999999998,-8.3000000000000007,2.7999999999999998,-10,-1.1000000000000001,-3.8999999999999999,-0.59999999999999998,-18.300000000000001,-10.6,-3.8999999999999999,-23.300000000000001,-16.699999999999999,-27.800000000000001,0,-1.1000000000000001,0,-3.2999999999999998,9.4000000000000004,0.59999999999999998,7.2000000000000002,9.4000000000000004,9.4000000000000004,17.199999999999999,13.9,21.699999999999999,8.9000000000000004,16.100000000000001,12.800000000000001,9.4000000000000004,12.199999999999999,0.59999999999999998,10.6,-1.7,1.1000000000000001,8.9000000000000004,-2.7999999999999998,-4.4000000000000004,-11.1,-8.9000000000000004,-5,-1.1000000000000001,-25,-21.699999999999999,-6.0999999999999996,-13.300000000000001,-5.5999999999999996,-20.600000000000001,-6.7000000000000002,-6.0999999999999996,-22.199999999999999,-7.2000000000000002,3.8999999999999999,-1.1000000000000001,7.7999999999999998,5.5999999999999996,10,13.300000000000001,5.5999999999999996,7.7999999999999998,5.5999999999999996,15.6,20,13.300000000000001,18.899999999999999,17.199999999999999,18.300000000000001,6.0999999999999996,8.3000000000000007,-3.2999999999999998,2.2000000000000002,5,4.4000000000000004,1.7,-1.1000000000000001,-4.4000000000000004,-24.399999999999999,-1.1000000000000001,1.7,-16.699999999999999,-5,-17.800000000000001,-10.6,-1.7,2.2000000000000002,12.800000000000001,5,5.5999999999999996,17.800000000000001,14.4,16.100000000000001,19.399999999999999,10.6,10.6,7.7999999999999998,21.699999999999999,19.399999999999999,20.600000000000001,16.100000000000001,19.399999999999999,14.4,15.6,20,10,17.800000000000001,12.199999999999999,7.2000000000000002,10,2.7999999999999998,1.7,-1.1000000000000001,4.4000000000000004,-8.3000000000000007,-6.0999999999999996,0,-3.2999999999999998,-1.7,-8.3000000000000007,-2.2000000000000002,-12.800000000000001,-8.9000000000000004,-5,-3.8999999999999999,-1.7,-2.7999999999999998,-1.7,-2.7999999999999998,11.699999999999999,11.1,14.4,18.300000000000001,13.9,12.199999999999999,13.300000000000001,10,8.3000000000000007,11,3.8999999999999999,11.1,5.5999999999999996,12.199999999999999,1.7,2.2000000000000002,-1.7,-1.1000000000000001,6.7000000000000002,4.4000000000000004,-13.9,-20.600000000000001,-12.199999999999999,-12.199999999999999,-26,-1.7,-3.8999999999999999,0.59999999999999998,0.59999999999999998,0.59999999999999998,15.6,-0.59999999999999998,12.199999999999999,4.4000000000000004,12.800000000000001,15,17.199999999999999,17.800000000000001,20,15.6,11,8.3000000000000007,6.0999999999999996,12.800000000000001,7.2000000000000002,-4.4000000000000004,-10,-13.300000000000001,-11.1,-13.9,-5.5999999999999996,-3.2999999999999998,9.4000000000000004,3.2999999999999998,6.7000000000000002,-1.1000000000000001,4.4000000000000004,10,12.199999999999999,14.4,12.800000000000001,20,16.699999999999999,13.9,5.5999999999999996,8.9000000000000004,0.59999999999999998,2.7999999999999998,7.2000000000000002,-2.2000000000000002,-1,-12.800000000000001,1.1000000000000001,-6.7000000000000002,-17.800000000000001,-15.6,0,0,2.7999999999999998,-7.2000000000000002,-9.4000000000000004,-11.699999999999999,-10,3.8999999999999999,6.0999999999999996,7.2000000000000002,7.2000000000000002,5.5999999999999996,8.9000000000000004,15,17.199999999999999,17.199999999999999,13.300000000000001,15,13.300000000000001,10,-4.4000000000000004,-5.5999999999999996,8.9000000000000004,0.59999999999999998,-6.7000000000000002,-3.2000000000000002,-2.7999999999999998,-2.2000000000000002,-15.6,0,1.7,7.7999999999999998,2.7999999999999998,11.699999999999999,11.699999999999999,5,1.7,10.6,13.9,6.7000000000000002,9.4000000000000004,10,8.3000000000000007,17.199999999999999,10,9.4000000000000004,17.199999999999999,20,14.4,12.800000000000001,13.300000000000001,7.7999999999999998,6.7000000000000002,3.2999999999999998,6.0999999999999996,5.5999999999999996,-1.1000000000000001,-2.2000000000000002,-2.2000000000000002,-5.5999999999999996],"type":"scatter","mode":"lines","name":"Min Temperature (°C)","line":{"color":"navyblue"},"marker":{"color":"rgba(31,119,180,0.5)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,0.5)"},"error_x":{"color":"rgba(31,119,180,0.5)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["1981-01-05","1981-02-07","1981-02-08","1981-02-17","1981-02-28","1981-03-03","1981-03-31","1981-04-29","1981-05-06","1981-05-15","1981-05-26","1981-05-28","1981-06-04","1981-06-08","1981-06-24","1981-06-25","1981-06-27","1981-07-23","1981-07-30","1981-08-06","1981-08-08","1981-08-14","1981-08-31","1981-09-12","1981-09-13","1981-10-03","1981-11-04","1981-11-19","1981-11-26","1981-12-17","1981-12-19","1981-12-21","1981-12-29","1982-01-10","1982-02-04","1982-02-20","1982-02-26","1982-03-26","1982-04-01","1982-04-15","1982-04-18","1982-04-22","1982-04-25","1982-04-28","1982-05-03","1982-05-05","1982-05-14","1982-06-09","1982-06-22","1982-06-23","1982-06-26","1982-08-08","1982-09-12","1982-10-09","1982-10-13","1982-10-16","1982-10-29","1982-10-31","1982-11-03","1982-11-08","1982-11-19","1982-11-23","1982-11-26","1982-11-27","1982-12-05","1982-12-09","1982-12-28","1983-01-05","1983-01-09","1983-01-13","1983-01-20","1983-01-26","1983-01-29","1983-02-08","1983-03-04","1983-03-11","1983-03-24","1983-03-26","1983-04-15","1983-04-20","1983-05-07","1983-05-14","1983-05-15","1983-05-31","1983-06-08","1983-06-21","1983-07-08","1983-07-20","1983-08-03","1983-08-06","1983-08-07","1983-09-04","1983-09-04","1983-09-27","1983-09-28","1983-10-07","1983-10-15","1983-10-17","1983-10-21","1983-10-30","1983-11-18","1983-11-22","1983-11-28","1983-12-12","1983-12-18","1983-12-26","1983-12-28","1984-01-15","1984-01-21","1984-01-21","1984-01-23","1984-02-03","1984-02-14","1984-02-25","1984-03-04","1984-03-11","1984-03-16","1984-03-26","1984-03-27","1984-04-02","1984-04-02","1984-04-16","1984-04-19","1984-04-26","1984-05-02","1984-05-07","1984-05-20","1984-06-07","1984-06-15","1984-06-22","1984-06-22","1984-07-09","1984-07-10","1984-07-19","1984-07-23","1984-07-25","1984-09-02","1984-09-03","1984-09-06","1984-10-03","1984-11-15","1984-11-15","1984-11-22","1984-12-08","1984-12-09","1984-12-31","1985-01-15","1985-01-29","1985-02-06","1985-03-01","1985-03-03","1985-03-11","1985-03-16","1985-03-25","1985-04-04","1985-04-10","1985-04-19","1985-05-01","1985-05-01","1985-05-17","1985-05-27","1985-05-29","1985-06-09","1985-06-12","1985-06-15","1985-06-18","1985-07-22","1985-07-27","1985-08-03","1985-08-16","1985-08-25","1985-09-02","1985-09-05","1985-10-07","1985-10-13","1985-10-17","1985-10-27","1985-11-02","1985-11-30","1985-12-01","1985-12-04","1985-12-07","1985-12-08","1985-12-14","1985-12-18","1985-12-21","1986-01-07","1986-02-23","1986-03-08","1986-03-09","1986-03-28","1986-04-20","1986-05-16","1986-05-26","1986-06-16","1986-06-18","1986-06-27","1986-07-07","1986-08-27","1986-09-03","1986-09-17","1986-09-18","1986-09-21","1986-09-24","1986-09-30","1986-10-12","1986-10-21","1986-10-30","1986-11-13","1986-11-23","1986-12-07","1987-01-03","1987-01-07","1987-01-13","1987-01-18","1987-01-24","1987-01-25","1987-01-28","1987-02-08","1987-02-10","1987-02-26","1987-03-30","1987-04-09","1987-04-25","1987-05-23","1987-05-28","1987-06-09","1987-06-12","1987-06-12","1987-06-19","1987-06-29","1987-07-25","1987-09-04","1987-09-10","1987-09-14","1987-09-17","1987-10-18","1987-10-18","1987-10-20","1987-11-01","1987-11-04","1987-11-22","1987-11-22","1987-12-02","1987-12-11","1987-12-21","1987-12-24","1988-01-03","1988-01-06","1988-01-11","1988-01-29","1988-02-05","1988-02-17","1988-02-19","1988-03-01","1988-03-17","1988-03-18","1988-03-25","1988-04-01","1988-04-25","1988-05-09","1988-05-26","1988-06-23","1988-07-19","1988-07-29","1988-08-06","1988-09-11","1988-09-21","1988-09-26","1988-10-04","1988-10-10","1988-10-12","1988-10-12","1988-10-21","1988-10-30","1988-11-10","1988-12-22","1988-12-24","1989-01-15","1989-01-15","1989-01-19","1989-02-13","1989-02-26","1989-03-05","1989-03-06","1989-03-19","1989-04-18","1989-05-22","1989-05-25","1989-05-25","1989-05-29","1989-06-11","1989-06-15","1989-06-22","1989-07-09","1989-07-11","1989-08-03","1989-08-30","1989-08-30","1989-08-31","1989-09-16","1989-10-04","1989-10-10","1989-11-07","1989-11-07","1989-11-20","1989-11-21","1989-12-05","1989-12-09","1989-12-09","1989-12-30","1990-01-13","1990-01-16","1990-01-26","1990-02-10","1990-04-01","1990-04-18","1990-04-22","1990-05-18","1990-05-25","1990-05-26","1990-06-03","1990-06-17","1990-06-25","1990-06-25","1990-07-20","1990-07-22","1990-08-06","1990-08-08","1990-08-21","1990-08-30","1990-09-07","1990-10-09","1990-10-15","1990-10-19","1990-11-02","1990-11-10","1990-11-12","1990-11-19","1990-12-01","1990-12-02","1990-12-06","1990-12-07","1990-12-25","1991-01-03","1991-01-10","1991-01-13","1991-02-03","1991-02-16","1991-02-24","1991-02-26","1991-03-05","1991-03-10","1991-03-24","1991-03-26","1991-03-28","1991-04-09","1991-04-14","1991-04-23","1991-05-24","1991-05-27","1991-06-19","1991-06-27","1991-06-28","1991-07-02","1991-07-14","1991-07-15","1991-07-25","1991-08-01","1991-09-03","1991-09-15","1991-09-25","1991-09-26","1991-10-02","1991-10-14","1991-10-17","1991-10-22","1991-10-22","1991-11-14","1991-11-17","1991-12-05","1991-12-07","1991-12-07","1992-01-14","1992-01-22","1992-01-31","1992-02-09","1992-03-19","1992-04-09","1992-04-15","1992-04-18","1992-04-26","1992-05-04","1992-05-17","1992-05-31","1992-06-05","1992-06-14","1992-07-14","1992-07-29","1992-08-04","1992-08-09","1992-08-09","1992-08-15","1992-09-14","1992-09-15","1992-09-17","1992-09-18","1992-09-25","1992-10-29","1992-11-07","1992-11-14","1992-11-24","1992-11-27","1992-12-06","1992-12-07","1992-12-16","1992-12-25","1993-01-07","1993-01-10","1993-01-16","1993-01-22","1993-01-26","1993-01-29","1993-02-04","1993-02-05","1993-02-12","1993-03-10","1993-03-22","1993-04-08","1993-05-01","1993-05-02","1993-05-05","1993-05-06","1993-05-11","1993-05-15","1993-05-27","1993-05-30","1993-06-10","1993-06-15","1993-06-25","1993-07-13","1993-07-24","1993-08-02","1993-08-04","1993-08-05","1993-08-09","1993-08-16","1993-08-21","1993-08-27","1993-09-02","1993-09-02","1993-09-11","1993-09-29","1993-10-14","1993-10-16","1993-10-17","1993-11-27","1993-11-30","1993-12-05","1993-12-21","1993-12-30","1993-12-31","1994-01-17","1994-01-17","1994-01-17","1994-01-26","1994-03-27","1994-04-20","1994-05-28","1994-06-16","1994-06-18","1994-07-20","1994-08-24","1994-08-27","1994-09-11","1994-09-13","1994-09-25","1994-10-13","1994-11-03","1994-11-06","1994-11-07","1994-11-12","1994-12-04","1994-12-16","1994-12-20","1994-12-24","1994-12-28","1995-01-07","1995-01-11","1995-02-01","1995-02-09","1995-02-25","1995-03-17","1995-03-17","1995-04-12","1995-04-20","1995-05-18","1995-05-20","1995-05-25","1995-06-15","1995-06-17","1995-06-25","1995-07-08","1995-07-22","1995-07-27","1995-07-28","1995-07-29","1995-08-29","1995-08-30","1995-09-10","1995-09-22","1995-10-01","1995-10-01","1995-10-06","1995-10-10","1995-10-17","1995-10-24","1995-11-16","1995-11-17","1995-11-25","1995-12-05","1995-12-21","1995-12-30","1996-01-11","1996-01-18","1996-01-20","1996-02-06","1996-03-02","1996-03-09","1996-04-12","1996-04-14","1996-04-20","1996-04-26","1996-05-01","1996-05-26","1996-06-08","1996-06-25","1996-07-02","1996-07-03","1996-07-06","1996-07-23","1996-07-25","1996-07-25","1996-08-05","1996-08-12","1996-08-14","1996-08-18","1996-09-11","1996-09-28","1996-10-11","1996-10-17","1996-10-31","1996-11-14","1996-12-03","1996-12-10","1996-12-12","1996-12-31","1997-01-09","1997-01-27","1997-01-29","1997-01-30","1997-03-06","1997-03-10","1997-03-11","1997-03-14","1997-04-02","1997-05-02","1997-05-09","1997-05-16","1997-05-30","1997-06-03","1997-07-26","1997-08-27","1997-09-04","1997-10-20","1997-10-20","1997-10-31","1997-11-26","1997-12-16","1997-12-29","1998-01-03","1998-01-08","1998-01-12","1998-01-13","1998-02-08","1998-02-10","1998-02-17","1998-02-19","1998-02-19","1998-03-13","1998-03-16","1998-03-20","1998-04-08","1998-04-18","1998-04-19","1998-04-26","1998-04-27","1998-05-15","1998-05-16","1998-05-28","1998-06-05","1998-07-01","1998-07-13","1998-08-18","1998-08-23","1998-08-27","1998-09-20","1998-09-20","1998-09-24","1998-10-12","1998-10-22","1998-10-23","1998-10-23","1998-11-22","1998-11-22","1998-12-02","1998-12-14","1998-12-17","1999-01-21","1999-02-02","1999-02-07","1999-02-15","1999-02-24","1999-02-27","1999-03-15","1999-03-16","1999-04-01","1999-04-04","1999-04-24","1999-05-02","1999-05-06","1999-05-12","1999-06-07","1999-06-19","1999-06-23","1999-07-13","1999-07-21","1999-08-01","1999-08-19","1999-09-28","1999-10-03","1999-10-20","1999-10-21","1999-10-23","1999-11-19","1999-11-22","1999-11-30","1999-12-08","1999-12-14","1999-12-16","1999-12-30","2000-01-01","2000-01-09","2000-01-21","2000-01-30","2000-02-03","2000-02-04","2000-02-26","2000-05-07","2000-05-17","2000-05-18","2000-06-09","2000-06-12","2000-06-25","2000-07-03","2000-07-17","2000-07-22","2000-07-28","2000-08-07","2000-08-12","2000-08-27","2000-09-28","2000-10-06","2000-10-07","2000-10-07","2000-10-12","2000-10-18","2000-11-18","2000-12-17","2001-01-18","2001-01-18","2001-01-30","2001-02-01","2001-02-04","2001-02-11","2001-03-10","2001-03-15","2001-04-18","2001-04-24","2001-04-26","2001-05-23","2001-05-31","2001-06-06","2001-06-13","2001-06-25","2001-06-30","2001-07-04","2001-07-19","2001-07-22","2001-09-06","2001-09-12","2001-10-24","2001-10-26","2001-11-17","2001-11-21","2001-11-23","2001-11-25","2001-12-22","2001-12-24","2002-01-08","2002-01-23","2002-01-27","2002-02-21","2002-02-26","2002-03-27","2002-04-02","2002-04-10","2002-04-17","2002-04-23","2002-06-07","2002-06-10","2002-06-11","2002-06-12","2002-06-30","2002-07-04","2002-07-13","2002-07-26","2002-07-31","2002-08-04","2002-08-25","2002-08-28","2002-09-08","2002-09-13","2002-09-16","2002-09-21","2002-09-30","2002-10-12","2002-10-17","2002-10-22","2002-10-25","2002-10-26","2002-12-16","2002-12-22","2003-01-03","2003-01-09","2003-01-24","2003-02-19","2003-02-20","2003-03-08","2003-03-11","2003-03-14","2003-03-20","2003-03-20","2003-03-25","2003-03-30","2003-04-22","2003-04-24","2003-05-07","2003-05-14","2003-05-24","2003-07-16","2003-07-26","2003-08-13","2003-08-17","2003-08-20","2003-08-25","2003-09-06","2003-09-08","2003-10-06","2003-10-12","2003-10-18","2003-10-28","2003-11-03","2003-11-10","2003-11-27","2003-12-03","2003-12-04","2003-12-14","2003-12-31","2004-01-11","2004-01-16","2004-02-11","2004-02-13","2004-02-14","2004-02-25","2004-03-11","2004-03-13","2004-03-14","2004-04-08","2004-04-27","2004-04-28","2004-05-09","2004-05-10","2004-05-19","2004-05-21","2004-05-22","2004-06-12","2004-06-28","2004-07-01","2004-07-12","2004-07-15","2004-07-30","2004-08-01","2004-09-10","2004-10-21","2004-10-31","2004-11-05","2004-11-06","2004-11-19","2004-11-25","2004-12-01","2005-01-02","2005-01-04","2005-01-24","2005-02-11","2005-02-16","2005-02-25","2005-03-04","2005-03-06","2005-03-10","2005-05-06","2005-05-13","2005-05-15","2005-05-20","2005-05-29","2005-06-06","2005-06-08","2005-06-11","2005-06-13","2005-06-19","2005-07-03","2005-07-06","2005-07-11","2005-07-13","2005-07-14","2005-07-24","2005-07-25","2005-07-30","2005-08-09","2005-08-21","2005-08-25","2005-09-13","2005-09-27","2005-09-30","2005-10-14","2005-10-25","2005-10-27","2005-11-19","2005-11-21","2005-11-26","2005-12-11","2005-12-12","2005-12-30","2006-01-04","2006-01-08","2006-02-06","2006-02-11","2006-02-25","2006-03-21","2006-03-26","2006-03-27","2006-03-28","2006-04-02","2006-04-09","2006-06-29","2006-07-01","2006-07-24","2006-07-31","2006-08-08","2006-08-09","2006-09-04","2006-09-08","2006-09-13","2006-09-17","2006-09-21","2006-09-28","2006-10-06","2006-10-06","2006-10-26","2006-11-10","2006-11-26","2006-12-17","2007-01-13","2007-01-15","2007-02-09","2007-02-20","2007-02-24","2007-02-24","2007-02-25","2007-03-23","2007-03-25","2007-04-13","2007-04-15","2007-05-06","2007-05-11","2007-05-18","2007-05-26","2007-06-06","2007-06-27","2007-07-15","2007-08-01","2007-08-01","2007-08-25","2007-09-04","2007-09-05","2007-09-23","2007-09-24","2007-10-11","2007-10-28","2007-10-30","2007-11-24","2007-12-16","2007-12-17","2008-02-21","2008-03-18","2008-03-22","2008-04-19","2008-05-14","2008-05-15","2008-05-18","2008-05-23","2008-06-01","2008-06-16","2008-07-01","2008-07-06","2008-07-19","2008-07-25","2008-08-08","2008-09-18","2008-10-01","2008-10-25","2008-11-01","2008-11-01","2008-11-17","2008-12-04","2008-12-09","2008-12-10","2008-12-19","2008-12-20","2008-12-23","2008-12-24","2008-12-25","2008-12-27","2008-12-31","2009-01-03","2009-01-19","2009-02-25","2009-03-06","2009-03-08","2009-05-04","2009-05-07","2009-05-17","2009-05-27","2009-06-21","2009-07-11","2009-07-11","2009-07-11","2009-08-09","2009-08-29","2009-09-27","2009-10-17","2009-10-19","2009-10-22","2009-10-26","2009-11-13","2009-12-01","2009-12-07","2009-12-28","2010-01-10","2010-03-06","2010-03-22","2010-04-04","2010-04-13","2010-04-30","2010-05-04","2010-05-05","2010-05-14","2010-05-28","2010-06-06","2010-06-06","2010-06-07","2010-06-10","2010-06-11","2010-06-22","2010-06-29","2010-06-30","2010-07-16","2010-07-19","2010-07-28","2010-08-23","2010-09-25","2010-09-27","2010-09-27","2010-10-29","2010-10-31","2010-11-06","2010-11-19","2010-12-02","2010-12-12","2010-12-18"],"y":[-4.4000000000000004,-2.7999999999999998,-1.1000000000000001,15,7.7999999999999998,-2.2000000000000002,16.100000000000001,23.899999999999999,22.199999999999999,22.199999999999999,27.800000000000001,25,25.600000000000001,23.300000000000001,18.300000000000001,25.600000000000001,13.9,20.600000000000001,23.899999999999999,27.800000000000001,25,26.699999999999999,21.699999999999999,28.899999999999999,23.300000000000001,11.1,15,6.0999999999999996,0,0,-4.4000000000000004,3.2999999999999998,3.8999999999999999,-9.4000000000000004,-0.59999999999999998,2.7999999999999998,-11.1,10.6,13.300000000000001,10,18.300000000000001,6.0999999999999996,19.399999999999999,10.6,22.800000000000001,21.699999999999999,23.300000000000001,26.699999999999999,23.899999999999999,25.600000000000001,25,27.800000000000001,30,17.800000000000001,15.6,7.2000000000000002,15,21.100000000000001,23.899999999999999,8.9000000000000004,9.4000000000000004,10,11.1,2.2000000000000002,17.800000000000001,0.59999999999999998,8.9000000000000004,5,3.8999999999999999,-1.7,-16.100000000000001,-0.59999999999999998,4.4000000000000004,-1.7,11.1,2.2000000000000002,-2.7999999999999998,6.7000000000000002,12.800000000000001,0,24.399999999999999,20,20,21.699999999999999,25.600000000000001,25,26.699999999999999,29.399999999999999,23.899999999999999,30.600000000000001,34.399999999999999,26.699999999999999,26.699999999999999,17.800000000000001,23.899999999999999,16.699999999999999,10,16.699999999999999,12.199999999999999,11.699999999999999,5,15.6,3.8999999999999999,15,-3.8999999999999999,-6.7000000000000002,2.2000000000000002,-1.1000000000000001,-7.2000000000000002,-8.3000000000000007,-8.3000000000000007,8.9000000000000004,15,10.6,-4.4000000000000004,1.7,9.4000000000000004,10.6,5,7.2000000000000002,10,8.3000000000000007,12.800000000000001,18.300000000000001,8.9000000000000004,22.800000000000001,20,28.300000000000001,28.300000000000001,28.899999999999999,25.600000000000001,25,22.800000000000001,23.300000000000001,29.399999999999999,25.600000000000001,22.199999999999999,16.699999999999999,17.800000000000001,15.6,7.2000000000000002,10.6,-2.2000000000000002,2.2000000000000002,2.2000000000000002,6.7000000000000002,2.2000000000000002,-8.9000000000000004,-1.1000000000000001,-0.59999999999999998,8.3000000000000007,10,0.59999999999999998,8.3000000000000007,11.1,5.5999999999999996,21.100000000000001,17.800000000000001,22.199999999999999,20,17.800000000000001,21.699999999999999,25.600000000000001,21.100000000000001,18.300000000000001,22.199999999999999,27.199999999999999,26.100000000000001,25,21.699999999999999,17.800000000000001,27.199999999999999,31.100000000000001,16.100000000000001,12.800000000000001,13.9,14.4,10,4.4000000000000004,2.7999999999999998,-3.2999999999999998,2.2000000000000002,1.7,-1.1000000000000001,-3.2999999999999998,-3.2999999999999998,-8.9000000000000004,2.7999999999999998,2.7999999999999998,-5.5999999999999996,9.4000000000000004,20,23.899999999999999,22.199999999999999,26.100000000000001,22.199999999999999,24.399999999999999,32.200000000000003,24.399999999999999,23.899999999999999,16.699999999999999,18.300000000000001,16.699999999999999,21.100000000000001,22.199999999999999,16.699999999999999,15,20.600000000000001,5,7.7999999999999998,3.8999999999999999,-1.7,6.0999999999999996,1.7,-2.7999999999999998,-3.2999999999999998,-2.7999999999999998,-4.4000000000000004,2.7999999999999998,-2.7999999999999998,3.8999999999999999,23.300000000000001,8.9000000000000004,14.4,27.800000000000001,25.600000000000001,23.300000000000001,19.399999999999999,19.399999999999999,26.100000000000001,30.600000000000001,34.399999999999999,19.399999999999999,22.199999999999999,22.800000000000001,24.399999999999999,13.9,19.399999999999999,18.300000000000001,13.9,17.800000000000001,-10.6,-12.800000000000001,2.2000000000000002,7.7999999999999998,4.4000000000000004,5,-8.9000000000000004,-10.6,-4.4000000000000004,-3.8999999999999999,-8.3000000000000007,-1.7,7.7999999999999998,1.7,3.2999999999999998,4.4000000000000004,14.4,11.699999999999999,7.2000000000000002,25,8.3000000000000007,30,30,29.399999999999999,26.100000000000001,18.300000000000001,20.600000000000001,20.600000000000001,13.300000000000001,7.2000000000000002,8.9000000000000004,11.1,11.699999999999999,3.2999999999999998,8.9000000000000004,3.8999999999999999,10,5.5999999999999996,1.7,6.7000000000000002,0,1.7,5,-6.0999999999999996,-5.5999999999999996,7.2000000000000002,17.199999999999999,26.100000000000001,27.199999999999999,25.600000000000001,24.399999999999999,17.199999999999999,28.899999999999999,27.800000000000001,25.600000000000001,27.199999999999999,25.600000000000001,27.800000000000001,26.100000000000001,16.100000000000001,10.6,8.3000000000000007,13.300000000000001,8.3000000000000007,5.5999999999999996,5.5999999999999996,1.7,-5.5999999999999996,-1.1000000000000001,-15,-8.3000000000000007,11.699999999999999,10.6,11.1,6.7000000000000002,6.0999999999999996,13.300000000000001,11.699999999999999,17.800000000000001,17.800000000000001,24.399999999999999,30.600000000000001,20.600000000000001,14.4,31.699999999999999,28.899999999999999,23.899999999999999,21.100000000000001,21.100000000000001,22.800000000000001,26.100000000000001,14.4,17.800000000000001,16.100000000000001,14.4,4.4000000000000004,2.7999999999999998,2.7999999999999998,3.8999999999999999,6.7000000000000002,0.59999999999999998,1.7,-1.7,0,0.59999999999999998,2.7999999999999998,5,-8.9000000000000004,-8.9000000000000004,-2.2000000000000002,4.4000000000000004,3.2999999999999998,2.7999999999999998,4.4000000000000004,18.899999999999999,30.600000000000001,9.4000000000000004,5.5999999999999996,28.899999999999999,28.300000000000001,30.600000000000001,31.699999999999999,32.799999999999997,23.899999999999999,24.399999999999999,29.399999999999999,28.300000000000001,29.399999999999999,25,25,18.300000000000001,15.6,23.300000000000001,10,18.300000000000001,22.800000000000001,7.2000000000000002,3.8999999999999999,2.7999999999999998,1.1000000000000001,9.4000000000000004,1.1000000000000001,8.3000000000000007,-0.59999999999999998,1.7,-5.5999999999999996,2.7999999999999998,14.4,7.2000000000000002,5.5999999999999996,5.5999999999999996,17.199999999999999,23.899999999999999,17.199999999999999,26.100000000000001,28.300000000000001,21.699999999999999,20,23.300000000000001,29.399999999999999,23.300000000000001,21.699999999999999,21.100000000000001,27.800000000000001,31.100000000000001,28.300000000000001,18.300000000000001,8.9000000000000004,0.59999999999999998,7.7999999999999998,11.699999999999999,12.199999999999999,2.2000000000000002,1.1000000000000001,4.4000000000000004,-6.7000000000000002,6.7000000000000002,-12.800000000000001,-3.8999999999999999,6.0999999999999996,-8.3000000000000007,5.5999999999999996,-0.59999999999999998,6.0999999999999996,-0.59999999999999998,2.2000000000000002,2.7999999999999998,16.699999999999999,26.699999999999999,20,22.800000000000001,20,27.800000000000001,21.100000000000001,17.199999999999999,16.100000000000001,27.199999999999999,23.899999999999999,29.399999999999999,31.100000000000001,24.399999999999999,32.200000000000003,23.899999999999999,22.199999999999999,27.199999999999999,30,24.399999999999999,31.100000000000001,26.699999999999999,24.399999999999999,18.899999999999999,10,15,14.4,16.100000000000001,6.0999999999999996,1.1000000000000001,3.2999999999999998,15,-5.5999999999999996,-7.2000000000000002,-9.4000000000000004,-11.1,-3.8999999999999999,-8.9000000000000004,0,11.699999999999999,21.100000000000001,31.699999999999999,32.799999999999997,31.699999999999999,25,25.600000000000001,16.699999999999999,30.600000000000001,17.199999999999999,16.699999999999999,19.399999999999999,16.699999999999999,18.300000000000001,7.7999999999999998,11.699999999999999,0,4.4000000000000004,1.7,1.1000000000000001,11.699999999999999,-10,3.8999999999999999,-0.59999999999999998,-1.7,11.699999999999999,16.699999999999999,15.6,3.2999999999999998,15.6,17.800000000000001,25.600000000000001,25.600000000000001,28.300000000000001,30,24.399999999999999,24.399999999999999,30,30.600000000000001,30.600000000000001,25.600000000000001,29.399999999999999,20,18.899999999999999,20.600000000000001,21.699999999999999,18.899999999999999,21.100000000000001,12.199999999999999,22.199999999999999,0,0,-1.1000000000000001,7.2000000000000002,-8.9000000000000004,2.7999999999999998,-1.7,11.1,13.9,-8.9000000000000004,-1.7,-4.4000000000000004,12.199999999999999,4.4000000000000004,21.100000000000001,17.199999999999999,15,21.100000000000001,23.300000000000001,22.199999999999999,25.600000000000001,21.699999999999999,30,28.300000000000001,24.399999999999999,26.100000000000001,30.600000000000001,22.800000000000001,26.699999999999999,25.600000000000001,23.899999999999999,18.899999999999999,12.199999999999999,15,13.9,0,11.1,5,4.4000000000000004,5.5999999999999996,-5.5999999999999996,5,-6.0999999999999996,-2.2000000000000002,2.7999999999999998,5,3.2999999999999998,1.7,1.7,18.300000000000001,20,17.800000000000001,21.100000000000001,20.600000000000001,27.800000000000001,26.100000000000001,15.6,12.800000000000001,18.300000000000001,15.6,3.8999999999999999,11.1,-1.1000000000000001,8.3000000000000007,12.199999999999999,-4.4000000000000004,5.5999999999999996,2.7999999999999998,8.9000000000000004,3.8999999999999999,3.8999999999999999,7.7999999999999998,-6.0999999999999996,-2.2000000000000002,6.0999999999999996,15,18.899999999999999,17.800000000000001,10,8.3000000000000007,26.699999999999999,28.899999999999999,25.600000000000001,16.100000000000001,21.100000000000001,27.800000000000001,25.600000000000001,28.899999999999999,24.399999999999999,26.699999999999999,28.300000000000001,16.699999999999999,20,13.300000000000001,17.199999999999999,16.100000000000001,6.7000000000000002,1.7,18.899999999999999,7.7999999999999998,2.7999999999999998,2.7999999999999998,6.0999999999999996,2.7999999999999998,2.7999999999999998,3.2999999999999998,5,7.2000000000000002,-1.1000000000000001,15,16.100000000000001,5.5999999999999996,23.899999999999999,21.100000000000001,17.800000000000001,26.699999999999999,23.899999999999999,30.600000000000001,27.199999999999999,25,27.199999999999999,23.300000000000001,17.199999999999999,18.899999999999999,12.800000000000001,15,10.6,13.9,13.9,-1.7,-1.1000000000000001,1.1000000000000001,4.4000000000000004,10,7.2000000000000002,10,-9.4000000000000004,2.2000000000000002,1.1000000000000001,0.59999999999999998,14.4,23.300000000000001,22.800000000000001,24.399999999999999,28.300000000000001,33.899999999999999,25,27.199999999999999,27.199999999999999,20,28.300000000000001,22.199999999999999,23.899999999999999,26.699999999999999,13.9,16.100000000000001,17.800000000000001,15.6,17.800000000000001,11.699999999999999,4.4000000000000004,12.199999999999999,-7.2000000000000002,0,1.1000000000000001,4.4000000000000004,-4.4000000000000004,0.59999999999999998,1.1000000000000001,10,6.0999999999999996,26.699999999999999,17.800000000000001,17.199999999999999,14.4,20.600000000000001,31.100000000000001,27.800000000000001,28.300000000000001,22.800000000000001,27.800000000000001,30,22.199999999999999,26.699999999999999,22.199999999999999,17.800000000000001,16.699999999999999,2.7999999999999998,11.1,17.800000000000001,1.1000000000000001,1.1000000000000001,-1.7,5.5999999999999996,11.699999999999999,10,17.199999999999999,0,4.4000000000000004,19.399999999999999,30.600000000000001,-0.59999999999999998,21.100000000000001,26.699999999999999,29.399999999999999,30.600000000000001,27.800000000000001,32.200000000000003,26.699999999999999,22.800000000000001,32.799999999999997,30,28.899999999999999,22.199999999999999,26.100000000000001,21.699999999999999,21.699999999999999,28.300000000000001,19.399999999999999,15.6,13.9,11.1,3.8999999999999999,7.2000000000000002,1.1000000000000001,3.8999999999999999,0,2.2000000000000002,-12.800000000000001,0,8.3000000000000007,2.7999999999999998,-11.699999999999999,-2.2000000000000002,8.3000000000000007,13.9,17.800000000000001,3.2999999999999998,15.6,2.7999999999999998,17.800000000000001,12.800000000000001,18.300000000000001,25.600000000000001,27.800000000000001,29.399999999999999,21.699999999999999,28.899999999999999,22.800000000000001,17.800000000000001,24.399999999999999,5.5999999999999996,21.699999999999999,6.7000000000000002,8.3000000000000007,14.4,0.59999999999999998,6.0999999999999996,-3.8999999999999999,3.2999999999999998,-0.59999999999999998,7.2000000000000002,-18.300000000000001,-10,0.59999999999999998,1.1000000000000001,2.2000000000000002,0,6.0999999999999996,0,2.7999999999999998,9.4000000000000004,13.300000000000001,11.1,12.800000000000001,18.899999999999999,22.199999999999999,23.300000000000001,18.300000000000001,18.899999999999999,21.100000000000001,29.399999999999999,26.100000000000001,20,27.199999999999999,27.199999999999999,27.199999999999999,11.699999999999999,19.399999999999999,8.3000000000000007,7.7999999999999998,10.6,11.1,8.3000000000000007,2.2000000000000002,-1.1000000000000001,-11.699999999999999,5,12.800000000000001,-2.7999999999999998,2.2000000000000002,5.5999999999999996,-3.8999999999999999,17.199999999999999,18.899999999999999,23.300000000000001,20.600000000000001,20,30,32.200000000000003,29.399999999999999,31.100000000000001,18.899999999999999,25.600000000000001,29.399999999999999,32.799999999999997,27.800000000000001,33.899999999999999,28.899999999999999,32.799999999999997,27.800000000000001,30.600000000000001,27.800000000000001,25.600000000000001,28.899999999999999,21.100000000000001,17.800000000000001,14.4,7.7999999999999998,3.8999999999999999,5,7.7999999999999998,-2.2000000000000002,-0.59999999999999998,5.5999999999999996,0,3.8999999999999999,1.1000000000000001,5.5999999999999996,-3.2999999999999998,2.2000000000000002,5.5999999999999996,1.7,8.9000000000000004,6.7000000000000002,14.4,5.5999999999999996,24.399999999999999,24.399999999999999,27.199999999999999,31.699999999999999,27.800000000000001,26.699999999999999,17.800000000000001,23.899999999999999,17.800000000000001,23.399999999999999,14.4,18.300000000000001,15.6,16.100000000000001,7.2000000000000002,12.800000000000001,15,12.800000000000001,10.6,11.1,-6.0999999999999996,3.2999999999999998,-4.4000000000000004,-6.0999999999999996,1.7,11.1,6.7000000000000002,8.3000000000000007,4.4000000000000004,18.899999999999999,25,12.800000000000001,30,23.300000000000001,31.699999999999999,27.199999999999999,32.200000000000003,30.600000000000001,33.299999999999997,29.399999999999999,22.600000000000001,26.100000000000001,25,16.699999999999999,18.899999999999999,6.0999999999999996,0,-1.7,-1.1000000000000001,-5.5999999999999996,6.7000000000000002,4.4000000000000004,28.300000000000001,22.199999999999999,18.300000000000001,16.100000000000001,17.800000000000001,26.100000000000001,19.399999999999999,28.899999999999999,28.899999999999999,31.699999999999999,26.699999999999999,24.399999999999999,23.300000000000001,16.699999999999999,10.6,12.199999999999999,16.100000000000001,3.2999999999999998,6.7000000000000002,-3.2999999999999998,12.199999999999999,2.2000000000000002,-11.1,-8.9000000000000004,10,8.9000000000000004,15,-1.1000000000000001,-2.2000000000000002,-2.2000000000000002,-2.2000000000000002,16.699999999999999,17.800000000000001,15.6,23.899999999999999,12.800000000000001,20,20,28.300000000000001,25.600000000000001,23.899999999999999,21.100000000000001,20,16.100000000000001,9.4000000000000004,5,18.899999999999999,13.300000000000001,13.300000000000001,3.2999999999999998,-0.59999999999999998,6.7000000000000002,-5.5999999999999996,12.199999999999999,14.4,23.300000000000001,11.1,18.300000000000001,26.100000000000001,22.199999999999999,16.100000000000001,21.699999999999999,28.899999999999999,11.699999999999999,24.399999999999999,15,20,26.100000000000001,20,19.399999999999999,30.600000000000001,30.600000000000001,28.300000000000001,23.899999999999999,32.200000000000003,14.4,16.699999999999999,12.800000000000001,14.4,10.6,7.2000000000000002,12.800000000000001,8.9000000000000004,0.59999999999999998],"type":"scatter","mode":"lines","name":"Max Temperature (°C)","line":{"color":"firebrick"},"marker":{"color":"rgba(255,127,14,0.5)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,0.5)"},"error_x":{"color":"rgba(255,127,14,0.5)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="column-1" class="section level2" data-width="350">
+<h2>Column</h2>
+<div id="scatter-plot-for-precipitation-vs.-snowfall"
+class="section level3">
+<h3>Scatter Plot for Precipitation vs. Snowfall</h3>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-785526faa466e9b249b2" style="width:576px;height:460.8px;"></div>
+<script type="application/json" data-for="htmlwidget-785526faa466e9b249b2">{"x":{"visdat":{"b8b2a52c5df":["function () ","plotlyVisDat"]},"cur_data":"b8b2a52c5df","attrs":{"b8b2a52c5df":{"x":{},"y":{},"mode":"markers","text":{},"marker":{"color":"navyblue","opacity":0.59999999999999998},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Scatter Plot of Precipitation vs. Snowfall","xaxis":{"domain":[0,1],"automargin":true,"title":"Precipitation (mm)"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Snowfall (mm)"},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[0,1.5,0.80000000000000004,0,0,35.299999999999997,0.29999999999999999,0,7.5999999999999996,0,0,0,0,0,5.2999999999999998,0,1.3,2.7999999999999998,4.5999999999999996,0,3,7.0999999999999996,0,1.3,0,0,0,2.7999999999999998,0,0,2,0,0,1.3,0,0.29999999999999999,0,0,0,10.199999999999999,0.5,0.5,2.5,0,0,0,0,1.8,0,0,0,0,0,0,3.6000000000000001,0,10.4,0,0.29999999999999999,0,26.699999999999999,0,25.399999999999999,0,0,8.9000000000000004,3.7999999999999998,0,11.9,0,0,0,0,0,10.9,0,0,0.80000000000000004,0,0,0,8.9000000000000004,20.600000000000001,2,3.2999999999999998,1.5,0,0,0,0,11.699999999999999,0,6.0999999999999996,0,0,4.5999999999999996,0,0,0,0,0,14,15.699999999999999,0,0.80000000000000004,0,0,0,0,0,0,0,0,0,0.29999999999999999,0,0,20.800000000000001,1,0,0,0,5.2999999999999998,1,0,0,52.799999999999997,0,12.699999999999999,0.5,8.4000000000000004,1.8,0,0,0,18,0,6.0999999999999996,0,0,4.0999999999999996,0,0,0,1.3,0,0,0,6.4000000000000004,0,0.5,2,0.29999999999999999,0,0,0,0,0,4.5999999999999996,0,0,0,0,4.2999999999999998,0,0,1.8,0,0,5.2999999999999998,0.5,0,0,0,3.6000000000000001,0.5,0,7.0999999999999996,0.29999999999999999,0,0,0,8.9000000000000004,0,0,0,0,0,0,0,0.5,0,0,0,0,0,0,4.7999999999999998,0,0.29999999999999999,0,2.2999999999999998,0,0,7.0999999999999996,15.699999999999999,8.5999999999999996,1.3,0.5,0,0,0.5,16,0,0,4.5999999999999996,0,0.80000000000000004,0,0,0,0,11.199999999999999,0,0,0,4.5999999999999996,0,0,0,0,0,0,0.80000000000000004,4.2999999999999998,3,0.5,3.7999999999999998,0,0,0,1,4.2999999999999998,0,0,0,0.80000000000000004,0,0,0,0,0,12.699999999999999,55.899999999999999,0,0,0,0.5,41.899999999999999,2.2999999999999998,0,0,0.29999999999999999,0.29999999999999999,2.5,0,0,0,0,0,0,0,0,10.699999999999999,7.5999999999999996,0,0,0,0,1.3,1.8,2,0,7.5999999999999996,0,2.2999999999999998,0,2.2999999999999998,0,0,2,0,0,2.5,0.5,0,0,0,0,0,0,0,2.2999999999999998,3,0,1.8,0,0,0,1.8,0,4.2999999999999998,0.29999999999999999,0,0,1.8,0,0,0,2.7999999999999998,0,0,0,4.0999999999999996,7.0999999999999996,0,0,0,0,9.6999999999999993,0,0,0,0,0,0.29999999999999999,0,2,0,6.5999999999999996,10.199999999999999,14.199999999999999,0,14.699999999999999,27.699999999999999,8.0999999999999996,0,0,0,0,0.29999999999999999,2,0,0,0,0,0,3.2999999999999998,0,0,0,0,0,39.600000000000001,0,0.5,0,3.7999999999999998,0,1.8,0,0,3,0.29999999999999999,0,0,4.5999999999999996,4.5999999999999996,0,0,0,1,0,2.2999999999999998,5.7999999999999998,0,9.4000000000000004,0,0,0,1,2.7999999999999998,0,0,0,0,6.5999999999999996,0,21.300000000000001,0,0,0,1.5,1.3,0,0,0,2.5,0.5,0,2.5,0,3.7999999999999998,0,2.7999999999999998,0.29999999999999999,0.29999999999999999,0,3.7999999999999998,0,0,1.3,0,0,0,2.2999999999999998,0,0,0,15.699999999999999,1.5,18.300000000000001,0,3.2999999999999998,0,0.29999999999999999,0,0,0,37.799999999999997,2.5,0.80000000000000004,0,4.2999999999999998,0,0,0,0,0.80000000000000004,1.3,13,0,2,2.5,0.5,0,1.5,0,0,0,0,0.5,0,0,0,1.5,19.100000000000001,0,0,0,2.7999999999999998,0,1,10.199999999999999,17.800000000000001,0,0,23.899999999999999,0,7.0999999999999996,0,0,0,22.600000000000001,0.29999999999999999,0,0,2.7999999999999998,0,7.0999999999999996,0,0,0,0,0,0,6.4000000000000004,0,0,0,0,0,0,0,0,0,0,0,57.200000000000003,15.199999999999999,0,0,0.29999999999999999,10.199999999999999,0,0,7.9000000000000004,0,3.7999999999999998,25.899999999999999,13,0,0,4.5999999999999996,3.2999999999999998,0,6.9000000000000004,0,1.3,2.2999999999999998,0,0.80000000000000004,0.80000000000000004,16.5,0,0,4.7999999999999998,0,0,0,0.5,0,0,0,0,0,5.7999999999999998,0,0,0,0.29999999999999999,0,0,6.4000000000000004,7.4000000000000004,0,0,0,0,0,5.5999999999999996,0,3.7999999999999998,0,1.8,2,0.5,6.5999999999999996,0,9.0999999999999996,0,19.800000000000001,7.4000000000000004,3.6000000000000001,24.600000000000001,1.3,0,0,0,0,0,76.200000000000003,6.0999999999999996,37.299999999999997,0,0,5.0999999999999996,4.5999999999999996,0,0,0,9.4000000000000004,9.4000000000000004,0.29999999999999999,6.5999999999999996,0,6.5999999999999996,0,5.7999999999999998,17.5,0,2.5,3,61.700000000000003,0.80000000000000004,2,0,0,0,0,6.4000000000000004,1.8,0,0,0,1.3,0,0,22.899999999999999,0.29999999999999999,11.4,0.80000000000000004,14.199999999999999,20.300000000000001,0,13,0,3,0,0,0,3.6000000000000001,10.699999999999999,0,0,0,3,0,0,0,0,0.5,16.5,0,0,6.0999999999999996,0,19.300000000000001,0,0,1.3,19.800000000000001,0,0,0,0.5,0,0,0,0.80000000000000004,0,0,19.100000000000001,0.80000000000000004,0,0.5,0,10.199999999999999,0.29999999999999999,5.2999999999999998,0,0,0.80000000000000004,0,0,1,0,15.199999999999999,0,0.5,0,1.3,18.5,0,0,9.6999999999999993,0,0,1,0,0,7.4000000000000004,0,0.5,0,0.80000000000000004,0,1.8,0,0,0,0,11.699999999999999,0,0,2.5,0,0.5,6.9000000000000004,0,30,0,0,0,0,0,2.7999999999999998,0,0,0,0,0.29999999999999999,0,0,0,0.5,1.5,0,0,0,5.5999999999999996,0,0,0,0,8.9000000000000004,0,1,4.5999999999999996,1.3,0,0.29999999999999999,9.4000000000000004,0,0,6.5999999999999996,0,0,0,9.9000000000000004,18,0,0,0.29999999999999999,0,0,0,0,0,0.80000000000000004,0,3,1,34.799999999999997,0,0,0,0,0,2,0,32,0,6.9000000000000004,0,0.80000000000000004,0,0,0,0.5,2,1.5,0,6.0999999999999996,1.5,0,0,0,0,0,0,1.3,0.5,0,5.7999999999999998,0,0,0.29999999999999999,0,0,0,0,2,0,0,0,0.5,1.5,0.5,1.5,0.29999999999999999,0,0,0,0,8.9000000000000004,0,0,0,0,24.100000000000001,0.5,0,8.5999999999999996,0,0,11.9,10.9,0,0,0,29.699999999999999,0,0,0,0,0,0,0,1,0,1.3,3,10.4,0,1.5,0.29999999999999999,15.199999999999999,5.7999999999999998,1,8.0999999999999996,0,0,11.9,0,0,0,9.9000000000000004,0,0,0,0,0,0.5,0,0,0,0,0,0,0,2.2999999999999998,0,0,0.29999999999999999,13.5,15.199999999999999,0,0,0,0,0,0,1.5,0.80000000000000004,0,0,0,0,0,5.0999999999999996,16.300000000000001,1,0,0,0,4.2999999999999998,0,0,0,0,0,0,9.0999999999999996,18.300000000000001,0,0,0,0,0,0,0,0,1.3,29.199999999999999],"y":[0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,51,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,0,0,0,38,23,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,119,0,0,0,0,0,0,0,0,48,0,0,0,178,117,38,51,0,0,0,0,0,0,0,0,0,0,71,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,0,0,0,0,0,0,0,0,3,0,0,0,5,0,0,0,0,0,0,0,0,0,25,0,0,0,0,20,0,0,0,0,0,0,0,0,0,0,0,28,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,152,0,0,0,0,0,0,0,0,0,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,25,0,0,0,0,25,0,0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,71,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,0,0,0,0,0,0,0,0,0,0,0,0,64,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,102,0,0,0,0,0,0,0,0,0,0,0,20,0,0,0,0,0,0,0,51,0,0,0,0,0,0,0,25,0,0,0,0,0,0,0,0,0,0,0,0,0,38,0,0,0,0,0,0,64,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,20,0,0,0,0,0,0,279,0,0,0,0,25,0,0,0,0,0,0,43,0,0,0,18,0,0,0,0,0,0,13,0,0,0,51,0,0,0,0,0,0,0,76,0,0,0,0,0,0,25,0,0,18,0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,25,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,25,0,13,13,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,58,0,0,0,0,0,0,0,0,0,0,0,38,0,0,0,0,0,0,0,38,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,102,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,152,0,0,0,0,305,0,0,0,0,0,0,0,0,0,0,38,0,0,0,0,8,0,0,0,0,0,0,0,0,30,0,0,0,0,0,0,0,0,13,8,0,0,3,0,0,0,0,0,53,0,0,13,0,0,0,0,0,0,0,0,51,244,0,0,0,0,0,10,0,0,0,0,0,0,0,0,41,0,0,0,0,0,0,0,0,0,0,69,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,25,0,0,0,0,0,0,13,56,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,97,0,0,0,0,0,0,51,0,0,0,33,0,0,0,0,0,0,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,25,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,0,0,0,0,0,0,0,15,0,0,0,0,0,0,3,0,64,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,51,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,25,0],"mode":"markers","text":["Precipitation: 0<br />Snowfall: 0","Precipitation: 15<br />Snowfall: 0","Precipitation: 8<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 353<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 5","Precipitation: 0<br />Snowfall: 0","Precipitation: 76<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 53<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 13<br />Snowfall: 0","Precipitation: 28<br />Snowfall: 0","Precipitation: 46<br />Snowfall: 51","Precipitation: 0<br />Snowfall: 0","Precipitation: 30<br />Snowfall: 0","Precipitation: 71<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 13<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 28<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 20<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 13<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 8","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 102<br />Snowfall: 38","Precipitation: 5<br />Snowfall: 23","Precipitation: 5<br />Snowfall: 13","Precipitation: 25<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 18<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 36<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 104<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 13","Precipitation: 0<br />Snowfall: 0","Precipitation: 267<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 254<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 89<br />Snowfall: 0","Precipitation: 38<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 119<br />Snowfall: 119","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 109<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 8<br />Snowfall: 48","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 89<br />Snowfall: 178","Precipitation: 206<br />Snowfall: 117","Precipitation: 20<br />Snowfall: 38","Precipitation: 33<br />Snowfall: 51","Precipitation: 15<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 117<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 61<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 46<br />Snowfall: 71","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 140<br />Snowfall: 0","Precipitation: 157<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 8<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 208<br />Snowfall: 0","Precipitation: 10<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 53<br />Snowfall: 0","Precipitation: 10<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 528<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 127<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 84<br />Snowfall: 0","Precipitation: 18<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 180<br />Snowfall: 20","Precipitation: 0<br />Snowfall: 0","Precipitation: 61<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 41<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 13<br />Snowfall: 3","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 64<br />Snowfall: 5","Precipitation: 0<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 20<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 46<br />Snowfall: 25","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 43<br />Snowfall: 20","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 18<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 53<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 36<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 28","Precipitation: 0<br />Snowfall: 0","Precipitation: 71<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 89<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 5","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 48<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 23<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 71<br />Snowfall: 0","Precipitation: 157<br />Snowfall: 152","Precipitation: 86<br />Snowfall: 0","Precipitation: 13<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 160<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 46<br />Snowfall: 25","Precipitation: 0<br />Snowfall: 0","Precipitation: 8<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 112<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 46<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 8<br />Snowfall: 0","Precipitation: 43<br />Snowfall: 0","Precipitation: 30<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 38<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 10<br />Snowfall: 13","Precipitation: 43<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 8<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 127<br />Snowfall: 25","Precipitation: 559<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 25","Precipitation: 419<br />Snowfall: 0","Precipitation: 23<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 10","Precipitation: 3<br />Snowfall: 0","Precipitation: 25<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 107<br />Snowfall: 0","Precipitation: 76<br />Snowfall: 71","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 13<br />Snowfall: 0","Precipitation: 18<br />Snowfall: 0","Precipitation: 20<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 76<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 23<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 23<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 20<br />Snowfall: 76","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 25<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 23<br />Snowfall: 0","Precipitation: 30<br />Snowfall: 64","Precipitation: 0<br />Snowfall: 0","Precipitation: 18<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 18<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 43<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 18<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 28<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 41<br />Snowfall: 102","Precipitation: 71<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 97<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 20","Precipitation: 0<br />Snowfall: 0","Precipitation: 20<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 66<br />Snowfall: 0","Precipitation: 102<br />Snowfall: 0","Precipitation: 142<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 147<br />Snowfall: 51","Precipitation: 277<br />Snowfall: 0","Precipitation: 81<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 0","Precipitation: 20<br />Snowfall: 25","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 33<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 396<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 38","Precipitation: 0<br />Snowfall: 0","Precipitation: 38<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 18<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 30<br />Snowfall: 64","Precipitation: 3<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 46<br />Snowfall: 0","Precipitation: 46<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 10<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 23<br />Snowfall: 0","Precipitation: 58<br />Snowfall: 3","Precipitation: 0<br />Snowfall: 0","Precipitation: 94<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 10<br />Snowfall: 0","Precipitation: 28<br />Snowfall: 20","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 66<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 213<br />Snowfall: 279","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 15<br />Snowfall: 0","Precipitation: 13<br />Snowfall: 25","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 25<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 25<br />Snowfall: 43","Precipitation: 0<br />Snowfall: 0","Precipitation: 38<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 28<br />Snowfall: 18","Precipitation: 3<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 38<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 13<br />Snowfall: 13","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 23<br />Snowfall: 51","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 157<br />Snowfall: 0","Precipitation: 15<br />Snowfall: 0","Precipitation: 183<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 33<br />Snowfall: 76","Precipitation: 0<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 378<br />Snowfall: 0","Precipitation: 25<br />Snowfall: 25","Precipitation: 8<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 43<br />Snowfall: 18","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 8<br />Snowfall: 0","Precipitation: 13<br />Snowfall: 0","Precipitation: 130<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 20<br />Snowfall: 0","Precipitation: 25<br />Snowfall: 13","Precipitation: 5<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 15<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 15<br />Snowfall: 0","Precipitation: 191<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 28<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 10<br />Snowfall: 0","Precipitation: 102<br />Snowfall: 0","Precipitation: 178<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 239<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 71<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 226<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 28<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 71<br />Snowfall: 25","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 5","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 64<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 572<br />Snowfall: 0","Precipitation: 152<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 0","Precipitation: 102<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 79<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 38<br />Snowfall: 0","Precipitation: 259<br />Snowfall: 0","Precipitation: 130<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 46<br />Snowfall: 0","Precipitation: 33<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 69<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 13<br />Snowfall: 0","Precipitation: 23<br />Snowfall: 25","Precipitation: 0<br />Snowfall: 0","Precipitation: 8<br />Snowfall: 13","Precipitation: 8<br />Snowfall: 13","Precipitation: 165<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 48<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 13","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 58<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 64<br />Snowfall: 58","Precipitation: 74<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 56<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 38<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 18<br />Snowfall: 0","Precipitation: 20<br />Snowfall: 38","Precipitation: 5<br />Snowfall: 0","Precipitation: 66<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 91<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 198<br />Snowfall: 0","Precipitation: 74<br />Snowfall: 0","Precipitation: 36<br />Snowfall: 38","Precipitation: 246<br />Snowfall: 0","Precipitation: 13<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 762<br />Snowfall: 0","Precipitation: 61<br />Snowfall: 0","Precipitation: 373<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 51<br />Snowfall: 0","Precipitation: 46<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 94<br />Snowfall: 0","Precipitation: 94<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 0","Precipitation: 66<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 66<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 58<br />Snowfall: 0","Precipitation: 175<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 25<br />Snowfall: 102","Precipitation: 30<br />Snowfall: 0","Precipitation: 617<br />Snowfall: 0","Precipitation: 8<br />Snowfall: 0","Precipitation: 20<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 3","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 64<br />Snowfall: 0","Precipitation: 18<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 13<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 229<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 0","Precipitation: 114<br />Snowfall: 152","Precipitation: 8<br />Snowfall: 0","Precipitation: 142<br />Snowfall: 0","Precipitation: 203<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 130<br />Snowfall: 305","Precipitation: 0<br />Snowfall: 0","Precipitation: 30<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 36<br />Snowfall: 0","Precipitation: 107<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 30<br />Snowfall: 38","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 8","Precipitation: 165<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 61<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 193<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 13<br />Snowfall: 30","Precipitation: 198<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 8<br />Snowfall: 13","Precipitation: 0<br />Snowfall: 8","Precipitation: 0<br />Snowfall: 0","Precipitation: 191<br />Snowfall: 0","Precipitation: 8<br />Snowfall: 3","Precipitation: 0<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 102<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 0","Precipitation: 53<br />Snowfall: 53","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 8<br />Snowfall: 13","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 10<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 152<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 13<br />Snowfall: 51","Precipitation: 185<br />Snowfall: 244","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 97<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 10<br />Snowfall: 10","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 74<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 8<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 18<br />Snowfall: 41","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 117<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 25<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 69<br />Snowfall: 69","Precipitation: 0<br />Snowfall: 5","Precipitation: 300<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 28<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 15<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 56<br />Snowfall: 25","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 89<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 10<br />Snowfall: 13","Precipitation: 46<br />Snowfall: 56","Precipitation: 13<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 0","Precipitation: 94<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 66<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 99<br />Snowfall: 0","Precipitation: 180<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 8<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 30<br />Snowfall: 0","Precipitation: 10<br />Snowfall: 0","Precipitation: 348<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 20<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 320<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 69<br />Snowfall: 97","Precipitation: 0<br />Snowfall: 0","Precipitation: 8<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 20<br />Snowfall: 51","Precipitation: 15<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 61<br />Snowfall: 0","Precipitation: 15<br />Snowfall: 33","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 13<br />Snowfall: 25","Precipitation: 5<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 58<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 20<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 15<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 15<br />Snowfall: 25","Precipitation: 3<br />Snowfall: 25","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 89<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 241<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 86<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 119<br />Snowfall: 0","Precipitation: 109<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 297<br />Snowfall: 20","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 10<br />Snowfall: 15","Precipitation: 0<br />Snowfall: 0","Precipitation: 13<br />Snowfall: 0","Precipitation: 30<br />Snowfall: 0","Precipitation: 104<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 15<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 3","Precipitation: 152<br />Snowfall: 0","Precipitation: 58<br />Snowfall: 64","Precipitation: 10<br />Snowfall: 25","Precipitation: 81<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 119<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 99<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 5<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 23<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 3<br />Snowfall: 0","Precipitation: 135<br />Snowfall: 0","Precipitation: 152<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 15<br />Snowfall: 0","Precipitation: 8<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 51<br />Snowfall: 0","Precipitation: 163<br />Snowfall: 0","Precipitation: 10<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 43<br />Snowfall: 51","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 91<br />Snowfall: 0","Precipitation: 183<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 0<br />Snowfall: 0","Precipitation: 13<br />Snowfall: 25","Precipitation: 292<br />Snowfall: 0"],"marker":{"color":"navyblue","opacity":0.59999999999999998,"line":{"color":"rgba(31,119,180,1)"}},"type":"scatter","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="bar-plot-for-total-precipitation" class="section level3">
+<h3>Bar Plot for Total Precipitation</h3>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-d930e4b6e421623b3902" style="width:576px;height:460.8px;"></div>
+<script type="application/json" data-for="htmlwidget-d930e4b6e421623b3902">{"x":{"visdat":{"b8b252866cce":["function () ","plotlyVisDat"]},"cur_data":"b8b252866cce","attrs":{"b8b252866cce":{"x":{},"y":{},"color":"navyblue","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Total Precipitation by Year","xaxis":{"domain":[0,1],"automargin":true,"title":"Year"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Total Precipitation (mm)"},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["1981-01-01","1982-01-01","1983-01-01","1984-01-01","1985-01-01","1986-01-01","1987-01-01","1988-01-01","1989-01-01","1990-01-01","1991-01-01","1992-01-01","1993-01-01","1994-01-01","1995-01-01","1996-01-01","1997-01-01","1998-01-01","1999-01-01","2000-01-01","2001-01-01","2002-01-01","2003-01-01","2004-01-01","2005-01-01","2006-01-01","2007-01-01","2008-01-01","2009-01-01","2010-01-01"],"y":[93,47.700000000000003,119,80.400000000000006,85.599999999999994,34.100000000000001,112.8,48,121.09999999999999,111.09999999999999,67.799999999999997,159.40000000000001,127.09999999999999,38.399999999999999,95.200000000000003,110.3,70.599999999999994,88.400000000000006,80.599999999999994,105.2,59.799999999999997,155.30000000000001,100.09999999999999,107.8,42.600000000000001,98.299999999999997,49.700000000000003,147.59999999999999,58,175.69999999999999],"type":"bar","name":"navyblue","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)"},"error_y":{"color":"rgba(252,141,98,1)"},"error_x":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+
+</div>
+
+<script>
+$(document).ready(function() {
+  // add bootstrap table styles to pandoc tables
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed table-sm');
+
+  // initialize mathjax
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+  document.getElementsByTagName("head")[0].appendChild(script);
+
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+  FlexDashboard.init({
+    fillPage: true,
+    orientation: "columns",
+    storyboard: false,
+    defaultFigWidth: 576,
+    defaultFigHeight: 460,
+    defaultFigWidthMobile: 360,
+    defaultFigHeightMobile: 460,
+    resize_reload: true
+  });
+  var navbar = $(".navbar").first();
+  var body = $("body").first();
+  var sidebar = $(".section.sidebar").first();
+  function addNavbarPadding() {
+    var navHeight = navbar.outerHeight();
+    body.css("padding-top", (navHeight + 8) + "px");
+    sidebar.css("top", navHeight + "px");
+    var resizeEvent = window.document.createEvent("UIEvents");
+    resizeEvent.initUIEvent("resize", true, false, window, 0);
+    window.dispatchEvent(resizeEvent);
+  }
+  if (!window.Shiny) setTimeout(addNavbarPadding, 100);
+  $(document).on("shiny:idle", function() {
+    setTimeout(addNavbarPadding, 50);
+  });
+});
+</script>
+
+</body>
+</html>

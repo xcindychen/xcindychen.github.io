@@ -1,23 +1,15 @@
 ---
-title: "My awesome website"
+title: "HsiYu Chen"
 output: 
   html_document:
     toc: true
     toc_float: true
 ---
 
-# This is Jeff's awesome website
+Welcome! This is a website about **Cindy**. This is me.  
+<img src="images/photo.jpg" style="width:50%">
 
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+I'm an MD graduate currently pursuing a master’s degree in Biomedical Informatics at Columbia University. I have a passion for **aerospace medicine** and extreme environment medicine, and I am interested in integrating AI and machine learning into medical practices to advance healthcare. Outside the academics, I enjoy climbing, scuba diving, and exploring the great outdoors, embracing the challenges and adventures that life has to offer.
 
-This is an **awesome website** about data science and elmo
+If you'd like to learn more about my professional and academic experiences, go to [this page](about.html).
 
-Sometimes I use [google](https://www.google.com) to do data science when I'm stuck.
-
-This is my image.
-
-![](images/image.jpg)
-<img src="images/image.jpg" style="width:75%">
-
-
-If you'd like to learn more about this website, bisit [this page](about.html)

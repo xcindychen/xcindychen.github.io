@@ -1,0 +1,77 @@
+---
+title: "Dashboard (NOAA)"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(plotly)
+library(p8105.datasets)
+
+data("ny_noaa")
+set.seed(123) 
+sample_data = ny_noaa |>
+  filter(!is.na(prcp), !is.na(tmax), !is.na(tmin)) |>
+  sample_n(1000) |>
+  mutate(
+    tmax = as.numeric(tmax),
+    tmin = as.numeric(tmin)
+  )
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+### Line Plot for Temperature Trends
+
+```{r}
+sample_data |> 
+  plot_ly(x = ~date) |>
+  add_lines(y = ~tmin / 10, name = "Min Temperature (°C)", line = list(color = "navyblue"), alpha = 0.5) |>
+  add_lines(y = ~tmax / 10, name = "Max Temperature (°C)", line = list(color = "firebrick"), alpha = 0.5) |>
+  layout(
+    title = "Temperature Trends Over Time",
+    xaxis = list(title = "Date"),
+    yaxis = list(title = "Temperature (°C)"),
+    legend = list(orientation = "h", x = 0.5, xanchor = "center", y = -0.2)
+  )
+```
+
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Scatter Plot for Precipitation vs. Snowfall
+
+```{r}
+sample_data |>
+  mutate(text_label = str_c("Precipitation: ", prcp, "\nSnowfall: ", snow)) |>
+  plot_ly(x = ~prcp / 10, y = ~snow, type = "scatter", mode = "markers", text = ~text_label,
+          marker = list(color = "navyblue", opacity = 0.6)) |>
+  layout(
+    title = "Scatter Plot of Precipitation vs. Snowfall",
+    xaxis = list(title = "Precipitation (mm)"),
+    yaxis = list(title = "Snowfall (mm)")
+  )
+```
+
+
+### Bar Plot for Total Precipitation
+
+```{r}
+sample_data |>
+  mutate(year = floor_date(date,"year")) |> 
+  group_by(year) |>
+  summarize(total_prcp = sum(prcp)/10) |>
+  plot_ly(
+    x = ~year, y= ~total_prcp,
+    type = "bar", color = "navyblue"
+  ) |>
+  layout(title = "Total Precipitation by Year",
+         xaxis = list(title = "Year"),
+         yaxis = list(title = "Total Precipitation (mm)"))
+```
+

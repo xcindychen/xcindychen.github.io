@@ -1,10 +1,62 @@
 ---
-title: "About this website"
+title: "Academic and Professional experience"
 output: 
   html_document:
     toc: true
     toc_float: true
 ---
 
-# Information about this website
-This website was made as an example in [P8105](https://p8105.com/index.html) for "making Websites". I'm making in RMD and will use GitHub for hosting.
+### Educations
+
+**Columbia University, MA**  
+Sep. 2023 — Present  
+*Course: Machine Learning in Healthcare, Symbolic AI in healthcare, Data Visualization, Data Science, Introduction to Database, Modern Data Structure, Introduction to Probability and Statistics*  
+
+**Tzu Chi University, School of Medicine, MD**    
+Sep. 2014 — Jun. 2020   
+*Doctor of Medicine, GPA: 3.74/4.00.*    
+
+### Work Experiences
+
+**Graduate Student Researcher, Weng's Lab in Columbia University**   
+June. 2024 - Present    
+*Evaluating Human-GPT Collaboration’s Performance for Data Extraction in Meta-Analysis.*.  
+**Postgraduate Year Physician, Tzu Chi Hospital, Taipei**    
+Aug. 2021 — Jul. 2022.  
+**Postgraduate Year Physician, Tzu Chi Hospital, Hualien**                                        
+Aug. 2020 — Jul. 2021    
+*Certified physician in Taiwan, with certification of ACLS, ETTC.*   
+
+### Projects
+**Machine Learning Methods for Colorectal Cancer Screening in Younger Adults**    
+Developed a machine learning framework including logistic regression, random forest, and SVM model to identify younger adults at high-risk for developing CRC using features from patients’ electronic health records and survey information.  
+**Analysis of MetaMap Efficacy in Symptom Extraction from MIMIC-IV for Collaborative Filtering in Diagnostic Prediction**    
+Developed annotation guidelines for extracting symptoms from clinical notes and assessed the effectiveness of MetaMap in contrast to manual extraction. Employed a collaborative filtering model to predict diagnoses from symptom data.  
+
+### Publications
+*Chen HY, Chang YH, Ding DC. The Negative Association between Breastfeeding Duration and Infant Febrile Seizure: A Retrospective Case-Control Study. Int J Environ Res Public Health. 2022 May*  
+
+### Research Experiences 
+**Dr. Chunhua Weng’s Lab, Columbia University**   
+Dec. 2023—Present   
+- Developing fine-grained PICO framework   
+**Algorithms & Computational Biology Laboratory in National Taiwan University**   
+Dec. 2021— Feb.2022    
+- Attended group discussions with different journal readings and projects such as predicting machine learning models application in emergency sepsis prediction.  
+**Dr. Dah Ching, Ding Laboratory, Tzu Chi Hospital**  
+Apr. 2020— Sep. 2021    
+- Completed a case-control study using SPSS and R analytic skills.   
+- Learned about the therapeutic potential of exosomes in alleviating osteoarthritis.  
+**Dr. Alvaro R. Osornio-Vargas Laboratory, University of Alberta, Canada**                         
+Jul. 2017   
+- Finished a protocol for a systematic review of the relationship between wildfire smoke exposure and adverse birth outcomes.  
+- Acquired fundamental concepts of meta-analysis studies.  
+- Assisted the process of data extraction in a meta-analysis project.  
+
+### Skills
+Languages: Native Chinese, fluent English.  
+Programming skills: Basic Python, R, SQL, and C.  
+Certified Advanced Open Water Diver (PADI) and freediver (AIDA2).   
+Certified Wilderness First Aid (WFA) of the Wilderness Medical Associates.  
+
+
